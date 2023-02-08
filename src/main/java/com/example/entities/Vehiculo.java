@@ -1,6 +1,9 @@
 package com.example.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @Getter      //Métodos Getter
@@ -11,19 +14,16 @@ import lombok.*;
 @Builder  // Permite objetos dinámicos con concatenación
 
 @Entity
-public class Cliente {
+public class Vehiculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String nombreCompleto;
-    @OneToOne
-    //@JoinColumn(name = "address_id")
-    private Address address;
-    private String email;
-    private String nif;
-    private Integer telefono;
-
-
+    private String modelo;
+    private String marca;
+    private Tipo tipo;
+    private String matricula;
+    private Color color;
+    private Combustible combustible;
+    private Integer year;
 }

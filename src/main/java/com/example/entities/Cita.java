@@ -1,9 +1,6 @@
 package com.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -18,14 +15,21 @@ import java.time.LocalDateTime;
 @Entity
 public class Cita {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "mecanico_id")
     private Mecanico mecanico;
     private LocalDateTime fecha_hora;
+    @OneToOne
+    @JoinColumn(name = "averia_id")
     private Averia averia;
+    @OneToOne
+    @JoinColumn(name = "presupuesto_id")
     private Presupuesto presupuesto;
 
 }

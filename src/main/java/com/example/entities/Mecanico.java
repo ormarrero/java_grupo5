@@ -1,9 +1,6 @@
 package com.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -21,5 +18,7 @@ public class Mecanico {
     private Long id;
     private String fullname;
     private Integer telefono;
+    @OneToOne
+    @JoinColumn(name = "talleres_id")
     private Talleres talleres;
 }
