@@ -1,9 +1,6 @@
 package com.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.id.factory.internal.StandardIdentifierGeneratorFactory;
 
@@ -19,11 +16,16 @@ public class Talleres {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String cp;
     private String ciudad;
     private Integer codEmpleado;
     private Double telefono;
+
+    @ManyToOne
+    // @JoinColumn(name = "talleres_cp")
+    private Talleres talleres;
 
 
 }

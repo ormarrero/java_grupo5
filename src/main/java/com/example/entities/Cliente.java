@@ -1,9 +1,6 @@
 package com.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter      //Métodos Getter
@@ -18,11 +15,14 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nombreCompleto;
-    private String Address;
+    @ManyToOne
+    // @JoinColumn(name = "address_id")
+    private Address address;
     private String email;
     private String nif;
-    private Double telefono;
+    private Integer telefono;
 
 }
