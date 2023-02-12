@@ -17,7 +17,7 @@ public class Averia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Tipo tipo;
+    private TipoAveria tipo;
     private String descripcion;
     private LocalDateTime fecha_hora;
     private Grado grado;
