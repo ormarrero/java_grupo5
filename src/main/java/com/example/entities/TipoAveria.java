@@ -1,5 +1,5 @@
 package com.example.entities;
 
-public enum Tipo {
+public enum TipoAveria {
     ELÉCTRICO, GOLPE, RUPTURA, HIDRÁULICO
 }
