@@ -2,7 +2,6 @@ package com.example.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.id.factory.internal.StandardIdentifierGeneratorFactory;
 
 @Getter      //Métodos Getter
 @Setter      //Métodos Setter
@@ -12,7 +11,7 @@ import org.hibernate.id.factory.internal.StandardIdentifierGeneratorFactory;
 @Builder  // Permite objetos dinámicos con concatenación
 
 @Entity
-public class Talleres {
+public class Taller {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,14 +21,9 @@ public class Talleres {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "mecanico_id")
     private Mecanico mecanico;
     private Double telefono;
-
-    @ManyToOne
-    // @JoinColumn(name = "talleres_cp")
-    private Talleres talleres;  // Verificar esta relación 
-
 
 }
