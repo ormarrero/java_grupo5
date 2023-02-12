@@ -21,7 +21,7 @@ public class Vehiculo {
     private Long id;
     private String modelo;
     private String marca;
-    private Tipo tipo;
+    private TipoVehiculo tipo;
     private String matricula;
     private Color color;
     private Combustible combustible;
