@@ -19,7 +19,7 @@ public class Cliente {
 
     private String nombreCompleto;
     @OneToOne
-    //@JoinColumn(name = "address_id")
+    @JoinColumn(name = "address_id")
     private Address address;
     private String email;
     private String nif;
