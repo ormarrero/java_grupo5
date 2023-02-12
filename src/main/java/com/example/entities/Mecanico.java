@@ -19,6 +19,6 @@ public class Mecanico {
     private String fullname;
     private Integer telefono;
     @OneToOne
-    @JoinColumn(name = "talleres_id")
-    private Talleres talleres;
+    @JoinColumn(name = "taller_id")
+    private Taller taller;
 }
