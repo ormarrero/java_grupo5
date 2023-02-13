@@ -21,11 +21,11 @@ public class Cita {
     @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    @ManyToOne // ? ¿Puede haber varios mecanicos encargados para la misma cita?
+    @OneToOne
     @JoinColumn(name = "mecanico_id")
     private Mecanico mecanico;
     private LocalDateTime fecha_hora;
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "averia_id")
     private Averia averia;
     @OneToOne
