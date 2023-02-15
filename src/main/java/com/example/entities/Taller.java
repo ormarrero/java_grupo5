@@ -3,6 +3,8 @@ package com.example.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter      //Métodos Getter
 @Setter      //Métodos Setter
 @NoArgsConstructor  //Constructor sin párametros
@@ -23,7 +25,7 @@ public class Taller {
     private Address address;
     @OneToMany
     @JoinColumn(name = "mecanico_id")
-    private Mecanico mecanico;
+    private List<Mecanico> mecanico;
     private Double telefono;
 
 }
