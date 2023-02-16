@@ -1,7 +1,7 @@
 package com.example.service;
 
 import com.example.entities.Mecanico;
-import com.example.repository.MecanicoRepository;
+import com.example.repositories.MecanicoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.example.service;
 
 import com.example.entities.Taller;
-import com.example.repository.TallerRepository;
+import com.example.repositories.TallerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
