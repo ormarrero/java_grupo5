@@ -1,8 +1,10 @@
 package com.example;
 
 import com.example.entities.*;
-import com.example.repository.PresupuestoRepository;
-import com.example.repository.VehiculoRepository;
+import com.example.repositories.AddressRepository;
+import com.example.repositories.ClienteRepository;
+import com.example.repositories.PresupuestoRepository;
+import com.example.repositories.VehiculoRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +15,20 @@ import java.util.List;
 public class App {
 
     public static void main(String[] args) { ApplicationContext context = SpringApplication.run(App.class, args);
+        // CLIENTE-ADDRESS:
+        ClienteRepository clienteRepo = context.getBean(ClienteRepository.class);
+        AddressRepository addressRepo = context.getBean(AddressRepository.class);
+
+        Address address1 = new Address(null, "La Rosa", 1, "Madrid", 10);
+        Address address2 = new Address(null, "La Piedra", 10, "Valencia", 12);
+        addressRepo.saveAll(List.of(address1,address2));
+
+        Cliente cliente1 = new Cliente(1L,"Jésus Peña Peña", address1, "arm@gmail.com","777788555L",698524789);
+        Cliente cliente2 = new Cliente(2L,"María Perez Soto", address2, "lug@gmail.com", "35874895Ñ",698547145);
+        Cliente cliente3 = new Cliente(3L,"Raul Luz Casals",address1,"kkkuhg@gmail.com","6666652241P",555221478);
+        Cliente cliente4 = new Cliente(4L,"Luis Osma Perez",address1,"kkkhhbb@gmail.com","444182241O",777441152);
+        Cliente cliente5 = new Cliente(5L,"Oscar Reyes Medina",address2,"gggr@gmail.com","44114415I",695231478);
+        clienteRepo.saveAll(List.of(cliente1,cliente2, cliente3,cliente4, cliente5));
 
         // VEHICULO
         VehiculoRepository vehiculoRepo = context.getBean(VehiculoRepository.class);

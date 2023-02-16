@@ -1,4 +1,4 @@
-package com.example.repository;
+package com.example.repositories;
 
 import com.example.entities.Cita;
 import org.springframework.data.jpa.repository.JpaRepository;
