@@ -26,6 +26,6 @@ public class Taller {
     @OneToMany
     @JoinColumn(name = "mecanico_id")
     private List<Mecanico> mecanico;
-    private Double telefono;
+    private Integer telefono;
 
 }
