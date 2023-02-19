@@ -25,5 +25,8 @@ public class Cliente {
     private String nif;
     private Integer telefono;
 
+    @OneToOne
+    private Vehiculo vehiculo;
+
 
 }
