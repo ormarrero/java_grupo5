@@ -1,14 +1,12 @@
 package com.example;
 
 import com.example.entities.*;
-import com.example.repositories.AddressRepository;
-import com.example.repositories.ClienteRepository;
-import com.example.repositories.PresupuestoRepository;
-import com.example.repositories.VehiculoRepository;
+import com.example.repositories.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -49,5 +47,43 @@ public class App {
         Presupuesto presupuesto4 = new Presupuesto(null,  750.8);
         Presupuesto presupuesto5 = new Presupuesto(null,  1500.9);
         presupuestoRepo.saveAll(List.of(presupuesto1, presupuesto2, presupuesto3, presupuesto4, presupuesto5));
+
+        // MECÁNICO-TALLER:
+        MecanicoRepository mecanicoRepo = context.getBean(MecanicoRepository.class);
+        TallerRepository tallerRepo = context.getBean(TallerRepository.class);
+
+        ArrayList<Mecanico> listaMecanicosTaller1 = new ArrayList<>();
+        ArrayList<Mecanico> listaMecanicosTaller2 = new ArrayList<>();
+
+        Taller taller1 = new Taller(null,"Norauto",address1,listaMecanicosTaller1,612345678);
+        Taller taller2 = new Taller(null,"El supercoche",address2,listaMecanicosTaller2,687654321);
+        tallerRepo.saveAll(List.of(taller1,taller2));
+
+        Mecanico mecanico1 = new Mecanico(1L,"Luis Carrasco Encinas",600112233,taller1);
+        Mecanico mecanico2 = new Mecanico(2L,"Nando Domínguez Noriega",624356879,taller1);
+        Mecanico mecanico3 = new Mecanico(3L,"Tomás Pedraza Navarro",680935214,taller2);
+        Mecanico mecanico4 = new Mecanico(4L,"Antonio Sánchez de la Parra",655678207,taller2);
+        mecanicoRepo.saveAll(List.of(mecanico1,mecanico2,mecanico3,mecanico4));
+
+        listaMecanicosTaller1.add(mecanico1);
+        listaMecanicosTaller1.add(mecanico2);
+        listaMecanicosTaller2.add(mecanico3);
+        listaMecanicosTaller2.add(mecanico4);
+        tallerRepo.saveAll(List.of(taller1,taller2));
+        //mecanicoRepo.saveAll(List.of(mecanico1,mecanico2,mecanico3,mecanico4));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
