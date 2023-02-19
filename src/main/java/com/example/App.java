@@ -19,6 +19,9 @@ public class App {
 
         Address address1 = new Address(null, "La Rosa", 1, "Madrid", 10);
         Address address2 = new Address(null, "La Piedra", 10, "Valencia", 12);
+        Address address3 = new Address(null,"El casal",12,"Alicante",14);
+        Address address4 = new Address(null,"San Felipe",31,"Valencia",19);
+
         addressRepo.saveAll(List.of(address1,address2));
 
         Cliente cliente1 = new Cliente(1L,"Jésus Peña Peña", address1, "arm@gmail.com","777788555L",698524789);
@@ -38,26 +41,21 @@ public class App {
         Vehiculo vehiculo5 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELÉCTRICO, 2023);
         vehiculoRepo.saveAll(List.of(vehiculo1, vehiculo2, vehiculo3, vehiculo4, vehiculo5));
 
-        // PRESUPUESTO:
-        PresupuestoRepository presupuestoRepo = context.getBean(PresupuestoRepository.class);
 
-        Presupuesto presupuesto1 = new Presupuesto(null,   2600.5);
-        Presupuesto presupuesto2 = new Presupuesto(null,  2000.9);
-        Presupuesto presupuesto3 = new Presupuesto(null,  1000.0);
-        Presupuesto presupuesto4 = new Presupuesto(null,  750.8);
-        Presupuesto presupuesto5 = new Presupuesto(null,  1500.9);
-        presupuestoRepo.saveAll(List.of(presupuesto1, presupuesto2, presupuesto3, presupuesto4, presupuesto5));
 
-        // MECÁNICO-TALLER:
-        MecanicoRepository mecanicoRepo = context.getBean(MecanicoRepository.class);
+        // TALLER:
         TallerRepository tallerRepo = context.getBean(TallerRepository.class);
 
-        ArrayList<Mecanico> listaMecanicosTaller1 = new ArrayList<>();
-        ArrayList<Mecanico> listaMecanicosTaller2 = new ArrayList<>();
+        //ArrayList<Mecanico> listaMecanicosTaller1 = new ArrayList<>();
+        //ArrayList<Mecanico> listaMecanicosTaller2 = new ArrayList<>();
 
-        Taller taller1 = new Taller(null,"Norauto",address1,listaMecanicosTaller1,612345678);
-        Taller taller2 = new Taller(null,"El supercoche",address2,listaMecanicosTaller2,687654321);
+        Taller taller1 = new Taller(null,"Norauto",address3,612345678);
+        Taller taller2 = new Taller(null,"El supercoche",address4,687654321);
         tallerRepo.saveAll(List.of(taller1,taller2));
+
+        // MECÁNICO:
+
+        MecanicoRepository mecanicoRepo = context.getBean(MecanicoRepository.class);
 
         Mecanico mecanico1 = new Mecanico(1L,"Luis Carrasco Encinas",600112233,taller1);
         Mecanico mecanico2 = new Mecanico(2L,"Nando Domínguez Noriega",624356879,taller1);
@@ -65,12 +63,22 @@ public class App {
         Mecanico mecanico4 = new Mecanico(4L,"Antonio Sánchez de la Parra",655678207,taller2);
         mecanicoRepo.saveAll(List.of(mecanico1,mecanico2,mecanico3,mecanico4));
 
-        listaMecanicosTaller1.add(mecanico1);
-        listaMecanicosTaller1.add(mecanico2);
-        listaMecanicosTaller2.add(mecanico3);
-        listaMecanicosTaller2.add(mecanico4);
-        tallerRepo.saveAll(List.of(taller1,taller2));
+        //listaMecanicosTaller1.add(mecanico1);
+        //listaMecanicosTaller1.add(mecanico2);
+        //listaMecanicosTaller2.add(mecanico3);
+        //listaMecanicosTaller2.add(mecanico4);
+        //tallerRepo.saveAll(List.of(taller1,taller2));
         //mecanicoRepo.saveAll(List.of(mecanico1,mecanico2,mecanico3,mecanico4));
+
+        // PRESUPUESTO:
+        PresupuestoRepository presupuestoRepo = context.getBean(PresupuestoRepository.class);
+
+        Presupuesto presupuesto1 = new Presupuesto(null,   2600.5,cliente1, taller1,Estado.APROBADO);
+        Presupuesto presupuesto2 = new Presupuesto(null,  2000.9,cliente2, taller2, Estado.RECHAZADO);
+        Presupuesto presupuesto3 = new Presupuesto(null,  1000.0,cliente3, taller1, Estado.APROBADO);
+        Presupuesto presupuesto4 = new Presupuesto(null,  750.8,cliente4, taller2, Estado.PENDIENTE);
+        Presupuesto presupuesto5 = new Presupuesto(null,  1500.9,cliente5, taller1, Estado.INACTIVO);
+        presupuestoRepo.saveAll(List.of(presupuesto1, presupuesto2, presupuesto3, presupuesto4, presupuesto5));
 
 
 
