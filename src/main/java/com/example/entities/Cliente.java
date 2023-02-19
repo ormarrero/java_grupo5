@@ -25,5 +25,9 @@ public class Cliente {
     private String nif;
     private Integer telefono;
 
+    @OneToOne
+    @JoinColumn(name = "vehiculo_id")
+    private Vehiculo vehiculo;
+
 
 }
