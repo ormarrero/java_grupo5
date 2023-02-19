@@ -13,6 +13,16 @@ import java.util.List;
 public class App {
 
     public static void main(String[] args) { ApplicationContext context = SpringApplication.run(App.class, args);
+        // VEHICULO
+        VehiculoRepository vehiculoRepo = context.getBean(VehiculoRepository.class);
+
+        Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla",TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELÉCTRICO, 2021);
+        Vehiculo vehiculo2 = new Vehiculo(null,  "M Competition", "BMW",TipoVehiculo.COCHE, "qwe456", Color.AZUL, Combustible.GASOLINA, 2020);
+        Vehiculo vehiculo3 = new Vehiculo(null,  "CB 125F", "HONDA",TipoVehiculo.MOTO, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2019);
+        Vehiculo vehiculo4 = new Vehiculo(null,  "S-Way", "Iveco",TipoVehiculo.CAMIÓN, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2020);
+        Vehiculo vehiculo5 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELÉCTRICO, 2023);
+        vehiculoRepo.saveAll(List.of(vehiculo1, vehiculo2, vehiculo3, vehiculo4, vehiculo5));
+
         // CLIENTE-ADDRESS:
         ClienteRepository clienteRepo = context.getBean(ClienteRepository.class);
         AddressRepository addressRepo = context.getBean(AddressRepository.class);
@@ -24,22 +34,12 @@ public class App {
 
         addressRepo.saveAll(List.of(address1,address2));
 
-        Cliente cliente1 = new Cliente(1L,"Jésus Peña Peña", address1, "arm@gmail.com","777788555L",698524789);
-        Cliente cliente2 = new Cliente(2L,"María Perez Soto", address2, "lug@gmail.com", "35874895Ñ",698547145);
-        Cliente cliente3 = new Cliente(3L,"Raul Luz Casals",address1,"kkkuhg@gmail.com","6666652241P",555221478);
-        Cliente cliente4 = new Cliente(4L,"Luis Osma Perez",address1,"kkkhhbb@gmail.com","444182241O",777441152);
-        Cliente cliente5 = new Cliente(5L,"Oscar Reyes Medina",address2,"gggr@gmail.com","44114415I",695231478);
+        Cliente cliente1 = new Cliente(1L,"Jésus Peña Peña", address1, "arm@gmail.com","777788555L",698524789,vehiculo1);
+        Cliente cliente2 = new Cliente(2L,"María Perez Soto", address2, "lug@gmail.com", "35874895Ñ",698547145,vehiculo2);
+        Cliente cliente3 = new Cliente(3L,"Raul Luz Casals",address1,"kkkuhg@gmail.com","6666652241P",555221478,vehiculo3);
+        Cliente cliente4 = new Cliente(4L,"Luis Osma Perez",address1,"kkkhhbb@gmail.com","444182241O",777441152,vehiculo4);
+        Cliente cliente5 = new Cliente(5L,"Oscar Reyes Medina",address2,"gggr@gmail.com","44114415I",695231478,vehiculo5);
         clienteRepo.saveAll(List.of(cliente1,cliente2, cliente3,cliente4, cliente5));
-
-        // VEHICULO
-        VehiculoRepository vehiculoRepo = context.getBean(VehiculoRepository.class);
-
-        Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla",TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELÉCTRICO, 2021);
-        Vehiculo vehiculo2 = new Vehiculo(null,  "M Competition", "BMW",TipoVehiculo.COCHE, "qwe456", Color.AZUL, Combustible.GASOLINA, 2020);
-        Vehiculo vehiculo3 = new Vehiculo(null,  "CB 125F", "HONDA",TipoVehiculo.MOTO, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2019);
-        Vehiculo vehiculo4 = new Vehiculo(null,  "S-Way", "Iveco",TipoVehiculo.CAMIÓN, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2020);
-        Vehiculo vehiculo5 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELÉCTRICO, 2023);
-        vehiculoRepo.saveAll(List.of(vehiculo1, vehiculo2, vehiculo3, vehiculo4, vehiculo5));
 
 
 
