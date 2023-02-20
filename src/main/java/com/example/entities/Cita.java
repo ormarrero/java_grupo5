@@ -34,11 +34,11 @@ public class Cita {
 
     @OneToOne
     @JoinColumn(name = "vehiculo_id")
-    private Vehiculo vehiculo; // A falta de visto bueno de los cinco, incluído mentor
+    private Vehiculo vehiculo;
 
     @OneToOne
     @JoinColumn(name = "taller_id")
-    private Taller taller; // A falta de visto bueno de los cinco, incluído mentor
+    private Taller taller;
 
 
 }
