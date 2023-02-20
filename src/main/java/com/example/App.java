@@ -70,15 +70,15 @@ public class App {
         //tallerRepo.saveAll(List.of(taller1,taller2));
         //mecanicoRepo.saveAll(List.of(mecanico1,mecanico2,mecanico3,mecanico4));
 
-        // PRESUPUESTO:
-        PresupuestoRepository presupuestoRepo = context.getBean(PresupuestoRepository.class);
+        // FACTURA:
+        FacturaRepository facturaRepo = context.getBean(FacturaRepository.class);
 
-        Presupuesto presupuesto1 = new Presupuesto(null,   2600.5,cliente1, taller1,Estado.APROBADO);
-        Presupuesto presupuesto2 = new Presupuesto(null,  2000.9,cliente2, taller2, Estado.RECHAZADO);
-        Presupuesto presupuesto3 = new Presupuesto(null,  1000.0,cliente3, taller1, Estado.APROBADO);
-        Presupuesto presupuesto4 = new Presupuesto(null,  750.8,cliente4, taller2, Estado.PENDIENTE);
-        Presupuesto presupuesto5 = new Presupuesto(null,  1500.9,cliente5, taller1, Estado.INACTIVO);
-        presupuestoRepo.saveAll(List.of(presupuesto1, presupuesto2, presupuesto3, presupuesto4, presupuesto5));
+        Factura factura1 = new Factura(null,   2600.5,cliente1, taller1);
+        Factura factura2 = new Factura(null,  2000.9,cliente2, taller2);
+        Factura factura3 = new Factura(null,  1000.0,cliente3, taller1);
+        Factura factura4 = new Factura(null,  750.8,cliente4, taller2);
+        Factura factura5 = new Factura(null,  1500.9,cliente5, taller1);
+        facturaRepo.saveAll(List.of(factura1, factura2, factura3, factura4, factura5));
 
 
 
