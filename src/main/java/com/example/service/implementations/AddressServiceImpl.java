@@ -1,7 +1,8 @@
-package com.example.service;
+package com.example.service.implementations;
 
 import com.example.entities.Address;
 import com.example.repositories.AddressRepository;
+import com.example.service.AddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class AddressServiceImpl implements AddressService{
+public class AddressServiceImpl implements AddressService {
 
     private final AddressRepository addressRepository;
 

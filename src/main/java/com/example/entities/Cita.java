@@ -21,16 +21,10 @@ public class Cita {
     @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    //@OneToOne
-    //@JoinColumn(name = "mecanico_id")
-    //private Mecanico mecanico;
     private LocalDateTime fecha_hora;
     @OneToOne
     @JoinColumn(name = "averia_id")
     private Averia averia;
-    //@OneToOne
-    //@JoinColumn(name = "presupuesto_id")
-    //private Presupuesto presupuesto;
 
     @OneToOne
     @JoinColumn(name = "vehiculo_id")
@@ -39,6 +33,5 @@ public class Cita {
     @OneToOne
     @JoinColumn(name = "taller_id")
     private Taller taller;
-
 
 }
