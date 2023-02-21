@@ -1,9 +1,10 @@
-package com.example.service;
+package com.example.service.implementations;
 
 
 import com.example.entities.Cita;
 
 import com.example.repositories.CitaRepository;
+import com.example.service.CitaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class CitaServiceImpl implements CitaService{
+public class CitaServiceImpl implements CitaService {
 
     private final CitaRepository citaRepository;
 

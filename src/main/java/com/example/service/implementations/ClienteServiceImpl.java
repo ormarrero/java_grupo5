@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.service.implementations;
 
 
 
@@ -7,6 +7,7 @@ package com.example.service;
 import com.example.entities.Cliente;
 
 import com.example.repositories.ClienteRepository;
+import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class ClienteServiceImpl implements ClienteService{
+public class ClienteServiceImpl implements ClienteService {
 
 
     private final ClienteRepository clienteRepository;

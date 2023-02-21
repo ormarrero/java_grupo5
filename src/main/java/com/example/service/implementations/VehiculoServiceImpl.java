@@ -3,18 +3,19 @@ package com.example.service.implementations;
 import com.example.entities.Vehiculo;
 import com.example.repositories.VehiculoRepository;
 import com.example.service.VehiculoService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
+@AllArgsConstructor
+@Service
 public class VehiculoServiceImpl implements VehiculoService {
 
     private final VehiculoRepository vehiculoRepository;
-
-    public VehiculoServiceImpl(VehiculoRepository vehiculoRepository) {
-        this.vehiculoRepository = vehiculoRepository;
-    }
-
+    
     @Override
     public List<Vehiculo> findAll() { return vehiculoRepository.findAll(); }
 

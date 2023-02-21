@@ -26,8 +26,8 @@ public class Factura { //Nombre de la clase
     @JoinColumn(name = "taller_id")
     private Taller taller;
 
-    //@OneToOne
-    //@JoinColumn(name = "averia_id")
-    //private Averia averia; //Se decomenta cuando esté el objeto Avería
+    @OneToOne
+    @JoinColumn(name = "averia_id")
+    private Averia averia; //Se decomenta cuando esté el objeto Avería
 
 }

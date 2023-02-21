@@ -81,16 +81,7 @@ public class App {
 
 
 
-        // FACTURA:
-        FacturaRepository facturaRepo = context.getBean(FacturaRepository.class);
-
-        Factura factura1 = new Factura(null,   2600.5,cliente1, taller1);
-        Factura factura2 = new Factura(null,  2000.9,cliente2, taller2);
-        Factura factura3 = new Factura(null,  1000.0,cliente3, taller1);
-        Factura factura4 = new Factura(null,  750.8,cliente4, taller2);
-        Factura factura5 = new Factura(null,  1500.9,cliente5, taller1);
-
-        facturaRepo.saveAll(List.of(factura1, factura2, factura3, factura4, factura5));
+       
 
 
         // AVERIA
@@ -104,7 +95,19 @@ public class App {
         Averia averia3 = new Averia(null, TipoAveria.RUPTURA, "averia3", LocalDateTime.parse("2009-12-03T10:15:30"), Grado.ALTO);
 
         averiaRepo.saveAll(List.of(averia1, averia2, averia3));
-
+        
+        // FACTURA:
+        FacturaRepository facturaRepo = context.getBean(FacturaRepository.class);
+    
+        Factura factura1 = new Factura(null,   2600.5,cliente1, taller1,averia1);
+        Factura factura2 = new Factura(null,  2000.9,cliente2, taller2,averia2);
+        Factura factura3 = new Factura(null,  1000.0,cliente3, taller1,averia3);
+        Factura factura4 = new Factura(null,  750.8,cliente4, taller2,averia2);
+        Factura factura5 = new Factura(null,  1500.9,cliente5, taller1,averia1);
+    
+        facturaRepo.saveAll(List.of(factura1, factura2, factura3, factura4, factura5));
+        
+        
         //  CITA
 
         CitaRepository citaRepo = context.getBean(CitaRepository.class);
