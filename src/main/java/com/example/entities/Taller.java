@@ -23,9 +23,6 @@ public class Taller {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
-    @OneToMany
-    @JoinColumn(name = "mecanico_id")
-    private List<Mecanico> mecanico;
-    private Double telefono;
+    private Integer telefono;
 
 }

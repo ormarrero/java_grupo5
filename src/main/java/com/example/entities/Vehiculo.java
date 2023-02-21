@@ -1,9 +1,8 @@
 package com.example.entities;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.entities.enums.Color;
+import com.example.entities.enums.TipoVehiculo;
+import com.example.entities.enums.Combustible;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter      //Métodos Getter
@@ -26,4 +25,8 @@ public class Vehiculo {
     private Color color;
     private Combustible combustible;
     private Integer year;
+//    @OneToOne
+//    @JoinColumn(name = "cliente_id")
+//    private Cliente cliente;
+
 }

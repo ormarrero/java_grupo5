@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import com.example.entities.enums.TipoAveria;
+import com.example.entities.enums.Grado;
 import jakarta.persistence.*;
 import lombok.*;
 
