@@ -87,15 +87,19 @@ public class App {
         Factura factura5 = new Factura(null,  1500.9,cliente5, taller1);
         facturaRepo.saveAll(List.of(factura1, factura2, factura3, factura4, factura5));
 
-        // AVERIA
-        AveriaRepository averiaRepo = context.getBean(AveriaRepository.class);
 
+        //  CITA
 
-        Averia averia1 = new Averia(null, TipoAveria.ELÉCTRICO, "averia1", LocalDateTime.parse("2007-12-03T10:15:30"), Grado.ALTO);
-        Averia averia2 = new Averia(null, TipoAveria.GOLPE, "averia2", LocalDateTime.parse("2008-12-03T10:15:30"), Grado.MEDIO);
-        Averia averia3 = new Averia(null, TipoAveria.RUPTURA, "averia3", LocalDateTime.parse("2009-12-03T10:15:30"), Grado.ALTO);
-        averiaRepo.saveAll(List.of(averia1,averia2,averia3));
+        CitaRepository citaRepo = context.getBean(CitaRepository.class);
 
+        LocalDateTime localDateTime = new LocalDateTime.of(2023/02/25,13,45,54);
+
+        Cita cita1 = new Cita(null,cliente1, localDateTime.parse);
+        Cita cita2 = new Cita(null,cliente2, LocalDateTime.parse("2007-12-03T10:15:30"));
+        Cita cita3 = new Cita(null,cliente3, LocalDateTime);
+        Cita cita4 = new Cita(null,cliente4, LocalDateTime);
+        Cita cita5 = new Cita(null,cliente5, LocalDateTime);
+        facturaRepo.saveAll(List.of(factura1, factura2, factura3, factura4, factura5));
 
 
 
