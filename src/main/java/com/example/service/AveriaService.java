@@ -1,8 +1,8 @@
 package com.example.service;
 
 import com.example.entities.Averia;
-import com.example.entities.Grado;
-import com.example.entities.TipoAveria;
+import com.example.entities.enums.Grado;
+import com.example.entities.enums.TipoAveria;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.example.entities;
-import com.example.entities.Color;
-import com.example.entities.TipoVehiculo;
-import com.example.entities.Combustible;
+import com.example.entities.enums.Color;
+import com.example.entities.enums.TipoVehiculo;
+import com.example.entities.enums.Combustible;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,8 +25,8 @@ public class Vehiculo {
     private Color color;
     private Combustible combustible;
     private Integer year;
-    @OneToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+//    @OneToOne
+//    @JoinColumn(name = "cliente_id")
+//    private Cliente cliente;
 
 }

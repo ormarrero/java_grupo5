@@ -1,11 +1,18 @@
 package com.example;
 
 import com.example.entities.*;
+
 import com.example.repositories.*;
+import com.example.entities.enums.Color;
+import com.example.entities.enums.Combustible;
+import com.example.entities.enums.Grado;
+import com.example.entities.enums.TipoAveria;
+import com.example.entities.enums.TipoVehiculo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +23,7 @@ public class App {
         // VEHICULO
         VehiculoRepository vehiculoRepo = context.getBean(VehiculoRepository.class);
 
-        Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla",TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELÉCTRICO, 2021);
+        Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla", TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELÉCTRICO, 2021);
         Vehiculo vehiculo2 = new Vehiculo(null,  "M Competition", "BMW",TipoVehiculo.COCHE, "qwe456", Color.AZUL, Combustible.GASOLINA, 2020);
         Vehiculo vehiculo3 = new Vehiculo(null,  "CB 125F", "HONDA",TipoVehiculo.MOTO, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2019);
         Vehiculo vehiculo4 = new Vehiculo(null,  "S-Way", "Iveco",TipoVehiculo.CAMIÓN, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2020);
@@ -80,7 +87,14 @@ public class App {
         Factura factura5 = new Factura(null,  1500.9,cliente5, taller1);
         facturaRepo.saveAll(List.of(factura1, factura2, factura3, factura4, factura5));
 
+        // AVERIA
+        AveriaRepository averiaRepo = context.getBean(AveriaRepository.class);
 
+
+        Averia averia1 = new Averia(null, TipoAveria.ELÉCTRICO, "averia1", LocalDateTime.parse("2007-12-03T10:15:30"), Grado.ALTO);
+        Averia averia2 = new Averia(null, TipoAveria.GOLPE, "averia2", LocalDateTime.parse("2008-12-03T10:15:30"), Grado.MEDIO);
+        Averia averia3 = new Averia(null, TipoAveria.RUPTURA, "averia3", LocalDateTime.parse("2009-12-03T10:15:30"), Grado.ALTO);
+        averiaRepo.saveAll(List.of(averia1,averia2,averia3));
 
 
 

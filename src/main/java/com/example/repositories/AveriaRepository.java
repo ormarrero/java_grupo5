@@ -1,8 +1,8 @@
 package com.example.repositories;
 
 import com.example.entities.Averia;
-import com.example.entities.Grado;
-import com.example.entities.TipoAveria;
+import com.example.entities.enums.Grado;
+import com.example.entities.enums.TipoAveria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;

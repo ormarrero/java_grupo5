@@ -1,7 +1,7 @@
 package com.example.repositories;
 
-import com.example.entities.Combustible;
-import com.example.entities.TipoVehiculo;
+import com.example.entities.enums.Combustible;
+import com.example.entities.enums.TipoVehiculo;
 import com.example.entities.Vehiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
 

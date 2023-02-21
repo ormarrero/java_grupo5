@@ -1,9 +1,10 @@
-package com.example.service;
+package com.example.service.implementations;
 
 import com.example.entities.Averia;
-import com.example.entities.Grado;
-import com.example.entities.TipoAveria;
+import com.example.entities.enums.Grado;
+import com.example.entities.enums.TipoAveria;
 import com.example.repositories.AveriaRepository;
+import com.example.service.AveriaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class AveriaServiceImpl implements AveriaService{
+public class AveriaServiceImpl implements AveriaService {
 
     private final AveriaRepository averiaRepository;
 
