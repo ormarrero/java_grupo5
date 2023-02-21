@@ -1,5 +1,5 @@
 package com.example.entities.enums;
 
 public enum TipoVehiculo {
-    COCHE, MOTO, FURGONETA, AUTOBÚS, CICLOMOTOR, CAMIÓN, QUAD
+    COCHE, MOTO, FURGONETA, AUTOBUS, CICLOMOTOR, CAMION, QUAD
 }
