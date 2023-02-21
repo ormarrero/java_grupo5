@@ -30,7 +30,4 @@ public class Factura { //Nombre de la clase
     //@JoinColumn(name = "averia_id")
     //private Averia averia; //Se decomenta cuando esté el objeto Avería
 
-
-
-
 }

@@ -1,8 +1,9 @@
-package com.example.service;
+package com.example.service.implementations;
 
 import com.example.entities.Taller;
 import com.example.repositories.MecanicoRepository;
 import com.example.repositories.TallerRepository;
+import com.example.service.TallerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

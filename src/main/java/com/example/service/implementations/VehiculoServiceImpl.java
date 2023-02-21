@@ -1,7 +1,8 @@
-package com.example.service;
+package com.example.service.implementations;
 
 import com.example.entities.Vehiculo;
 import com.example.repositories.VehiculoRepository;
+import com.example.service.VehiculoService;
 
 import java.util.List;
 import java.util.Optional;
