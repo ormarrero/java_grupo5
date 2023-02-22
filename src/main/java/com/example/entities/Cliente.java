@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor // Constructor con párametros
 @ToString  // Método ToString
 @Builder  // Permite objetos dinámicos con concatenación
-
 @Entity
 public class Cliente {
 
@@ -24,10 +23,8 @@ public class Cliente {
     private String email;
     private String nif;
     private Integer telefono;
-
     @OneToOne
     @JoinColumn(name = "vehiculo_id")
     private Vehiculo vehiculo;
-
 
 }

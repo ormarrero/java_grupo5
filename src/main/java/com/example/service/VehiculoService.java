@@ -13,7 +13,7 @@ public interface VehiculoService {
     List<Vehiculo> findAllByMarca(String marca);
     List<Vehiculo> findAllByModeloAndMarca(String modelo, String marca);
     List<Vehiculo> findAllByMatricula(String matricula);
-    List<Vehiculo> findAllByColor(String color);
     List<Vehiculo> findAllByYear(Integer year);
+    Vehiculo save(Vehiculo vehiculo);
     void deleteById(Long id);
 }

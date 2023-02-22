@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 @Builder
-
 @Entity
 public class Cita {
 
@@ -21,11 +20,10 @@ public class Cita {
     @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    private LocalDateTime fecha_hora;
+    private LocalDateTime fechaHora;
     @OneToOne
     @JoinColumn(name = "averia_id")
     private Averia averia;
-
     @OneToOne
     @JoinColumn(name = "vehiculo_id")
     private Vehiculo vehiculo;
@@ -33,6 +31,5 @@ public class Cita {
     @OneToOne
     @JoinColumn(name = "taller_id")
     private Taller taller;
-
 
 }

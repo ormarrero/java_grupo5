@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Builder
-
 @Entity
 public class Mecanico {
 

@@ -11,14 +11,12 @@ import java.util.List;
 @AllArgsConstructor // Constructor con párametros
 @ToString  // Método ToString
 @Builder  // Permite objetos dinámicos con concatenación
-
 @Entity
 public class Taller {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     @OneToOne
     @JoinColumn(name = "address_id")

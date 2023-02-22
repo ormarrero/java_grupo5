@@ -10,13 +10,17 @@ public interface ClienteService {
 
     // crud
     List<Cliente> findAll();
-    Optional<Cliente> findById(Long id);
-    List<Cliente> findAllByCalle(String calle);
-    List<Cliente> findAllByNumero(Integer numero);
-    List<Cliente> findAllByCalleAndNumero(String calle, Integer numero);
-    List<Cliente> findAllByCiudad(String ciudad);
-    List<Cliente> findAllByCp(Integer cp);
-    List<Cliente> findAllByCiudadAndCp(String ciudad, Integer cp);
+    Optional<Cliente>findById(Long id);
+    List<Cliente> findAllByNombreCompleto(String nombreCompleto);
+
+    List<Cliente> findAllByEmail(String email);
+
+    List<Cliente> findAllBynif(String nif);
+
+    List<Cliente> findAllBytelefono(Integer telefono);
+
+    List<Cliente> findAllByEmailAndNif(String email, String nif);
+
     Cliente save(Cliente cliente);
     void deleteById(Long id);
 }

@@ -22,46 +22,37 @@ public class ClienteServiceImpl implements ClienteService {
     private final ClienteRepository clienteRepository;
 
     @Override
-    public List<Cliente> findAll() { return clienteRepository.findAll(); }
-
-
+    public List<Cliente> findAll() {
+        return clienteRepository.findAll(); }
 
     @Override
     public Optional<Cliente> findById(Long id) {
-        return clienteRepository.findById(id);
+        return clienteRepository.findById(id);  }
+
+    @Override
+    public List<Cliente> findAllByNombreCompleto(String nombreCompleto) {
+        return clienteRepository.findAllByNombreCompleto(nombreCompleto);
     }
 
     @Override
-    public List<Cliente> findAllByCalle(String calle) {
-        return clienteRepository.findAllByCalle(calle);
+    public List<Cliente> findAllByEmail(String email) {
+        return clienteRepository.findAllByEmail(email);
     }
 
     @Override
-    public List<Cliente> findAllByNumero(Integer numero) {
-        return clienteRepository.findAllByNumero(numero);
+    public List<Cliente> findAllBynif(String nif) {
+        return clienteRepository.findAllBynif(nif);
     }
 
     @Override
-    public List<Cliente> findAllByCalleAndNumero(String calle, Integer numero) {
-        return clienteRepository.findAllByCalleAndNumero(calle, numero);
+    public List<Cliente> findAllBytelefono(Integer telefono) {
+        return clienteRepository.findAllBytelefono(telefono);
     }
 
     @Override
-    public List<Cliente> findAllByCiudad(String ciudad) {
-        return clienteRepository.findAllByCiudad(ciudad);
+    public List<Cliente> findAllByEmailAndNif(String email, String nif) {
+        return clienteRepository.findAllByEmailAndNif(email, nif);
     }
-
-    @Override
-    public List<Cliente> findAllByCp(Integer cp) {
-        return clienteRepository.findAllByCp(cp);
-    }
-
-    @Override
-    public List<Cliente> findAllByCiudadAndCp(String ciudad, Integer cp) {
-        return clienteRepository.findAllByCiudadAndCp(ciudad, cp);
-    }
-
-
 
     @Override
     public Cliente save(Cliente cliente) {
@@ -69,8 +60,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public void deleteById(Long id) {
-        clienteRepository.deleteById(id);
-    }
+    public void deleteById(Long id) {clienteRepository.deleteById(id); }
+
 }
 

@@ -15,9 +15,11 @@ import java.util.Optional;
 public class VehiculoServiceImpl implements VehiculoService {
 
     private final VehiculoRepository vehiculoRepository;
-    
+
     @Override
-    public List<Vehiculo> findAll() { return vehiculoRepository.findAll(); }
+    public List<Vehiculo> findAll() {
+        return vehiculoRepository.findAll();
+    }
 
     @Override
     public Optional<Vehiculo> findById(Long id) {
@@ -36,7 +38,7 @@ public class VehiculoServiceImpl implements VehiculoService {
 
     @Override
     public List<Vehiculo> findAllByModeloAndMarca(String modelo, String marca) {
-        return vehiculoRepository.findAllModeloAndMarca(modelo, marca);
+        return vehiculoRepository.findAllByModeloAndMarca(modelo, marca);
     }
 
     @Override
@@ -45,15 +47,17 @@ public class VehiculoServiceImpl implements VehiculoService {
     }
 
     @Override
-    public List<Vehiculo> findAllByColor(String color) {
-        return vehiculoRepository.findAllByColor(color);
-    }
-
-    @Override
     public List<Vehiculo> findAllByYear(Integer year) {
         return vehiculoRepository.findAllByYear(year);
     }
 
     @Override
-    public void deleteById(Long id) {vehiculoRepository.deleteById(id); }
+    public Vehiculo save(Vehiculo vehiculo) {
+        return vehiculoRepository.save(vehiculo);
+    }
+
+    @Override
+    public void deleteById(Long id) {vehiculoRepository.deleteById(id);
+
+    }
 }

@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor // Constructor con todos los parámetros
 @ToString // Método toString()
 @Builder // Patrón de diseño builder, permite construir objetos dinámicamente concatenando métodos
-
 @Entity
 public class Address {
     @Id

@@ -8,6 +8,7 @@ import com.example.service.CitaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,10 @@ public class CitaServiceImpl implements CitaService {
 
     private final CitaRepository citaRepository;
 
+
     @Override
-    public List<Cita> findAll() { return citaRepository.findAll();
+    public List<Cita> findAll() {
+        return citaRepository.findAll();
     }
 
     @Override
@@ -27,34 +30,10 @@ public class CitaServiceImpl implements CitaService {
     }
 
     @Override
-    public List<Cita> findAllByCalle(String calle) {
-        return citaRepository.findAllByCalle(calle);
+    public List<Cita> findAllByFechaHora(LocalDateTime fechaHora) {
+        return citaRepository.findAllByFechaHora(fechaHora);
     }
 
-    @Override
-    public List<Cita> findAllByNumero(Integer numero) {
-        return citaRepository.findAllByNumero(numero);
-    }
-
-    @Override
-    public List<Cita> findAllByCalleAndNumero(String calle, Integer numero) {
-        return citaRepository.findAllByCalleAndNumero(calle, numero);
-    }
-
-    @Override
-    public List<Cita> findAllByCiudad(String ciudad) {
-        return citaRepository.findAllByCiudad(ciudad);
-    }
-
-    @Override
-    public List<Cita> findAllByCp(Integer cp) {
-        return citaRepository.findAllByCp(cp);
-    }
-
-    @Override
-    public List<Cita> findAllByCiudadAndCp(String ciudad, Integer cp) {
-        return citaRepository.findAllByCiudadAndCp(ciudad, cp);
-    }
 
     @Override
     public Cita save(Cita cita) {

@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor // Constructor con todos los parámetros
 @ToString // Método toString()
 @Builder // Patrón de diseño builder, permite construir objetos dinámicamente concatenando métodos
-
 @Entity
 public class Averia {
     @Id
@@ -21,8 +20,7 @@ public class Averia {
     private Long id;
     private TipoAveria tipo;
     private String descripcion;
-    private LocalDateTime fecha_hora;
+    private LocalDateTime fechaHora;
     private Grado grado;
-
 
 }
