@@ -1,7 +1,10 @@
 package com.example.service.implementations;
 
+import com.example.entities.Cliente;
 import com.example.entities.Mecanico;
+import com.example.repositories.ClienteRepository;
 import com.example.repositories.MecanicoRepository;
+import com.example.service.ClienteService;
 import com.example.service.MecanicoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -57,4 +60,5 @@ public class MecanicoServiceImpl implements MecanicoService {
 
         mecanicoRepository.deleteById(id);
     }
+
 }

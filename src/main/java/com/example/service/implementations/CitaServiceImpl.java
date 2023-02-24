@@ -1,6 +1,7 @@
 package com.example.service.implementations;
 
 
+import com.example.entities.Averia;
 import com.example.entities.Cita;
 
 import com.example.repositories.CitaRepository;
@@ -34,6 +35,11 @@ public class CitaServiceImpl implements CitaService {
         return citaRepository.findAllByFechaHora(fechaHora);
     }
 
+    @Override
+    public List<Cita> findAllByAveria(Averia averia) {
+        return citaRepository.findAllByAveria(Averia averia);
+    }
+
 
     @Override
     public Cita save(Cita cita) {
@@ -44,5 +50,7 @@ public class CitaServiceImpl implements CitaService {
     public void deleteById(Long id) {
         citaRepository.deleteById(id);
     }
+
+
 }
 

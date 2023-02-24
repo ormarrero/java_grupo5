@@ -2,6 +2,7 @@ package com.example.service;
 
 
 import com.example.entities.Cliente;
+import com.example.entities.Vehiculo;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,12 +16,17 @@ public interface ClienteService {
 
     List<Cliente> findAllByEmail(String email);
 
-    List<Cliente> findAllBynif(String nif);
+    List<Cliente> findAllByNif(String nif);
 
-    List<Cliente> findAllBytelefono(Integer telefono);
+    List<Cliente> findAllByTelefono(Integer telefono);
 
     List<Cliente> findAllByEmailAndNif(String email, String nif);
 
+
+    Object findAllByVehiculo(Vehiculo vehiculo);
+
     Cliente save(Cliente cliente);
     void deleteById(Long id);
+
+
 }

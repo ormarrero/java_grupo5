@@ -1,6 +1,7 @@
 package com.example.service;
 
 
+import com.example.entities.Averia;
 import com.example.entities.Cita;
 
 import java.time.LocalDateTime;
@@ -15,4 +16,6 @@ public interface CitaService {
     List<Cita> findAllByFechaHora(LocalDateTime fechaHora);
     Cita save(Cita cita);
     void deleteById(Long id);
+
+    List<Cita> findAllByAveria(Averia averia);
 }

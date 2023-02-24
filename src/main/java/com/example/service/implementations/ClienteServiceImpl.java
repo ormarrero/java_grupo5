@@ -6,6 +6,7 @@ package com.example.service.implementations;
 
 import com.example.entities.Cliente;
 
+import com.example.entities.Vehiculo;
 import com.example.repositories.ClienteRepository;
 import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
@@ -21,17 +22,20 @@ public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository clienteRepository;
 
+
     @Override
     public List<Cliente> findAll() {
-        return clienteRepository.findAll(); }
+        return  clienteRepository.findAll();
+    }
 
     @Override
     public Optional<Cliente> findById(Long id) {
-        return clienteRepository.findById(id);  }
+        return Optional.empty();
+    }
 
     @Override
     public List<Cliente> findAllByNombreCompleto(String nombreCompleto) {
-        return clienteRepository.findAllByNombreCompleto(nombreCompleto);
+        return clienteRepository.findAllByNombreCompleto( nombreCompleto);
     }
 
     @Override
@@ -40,18 +44,23 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public List<Cliente> findAllBynif(String nif) {
-        return clienteRepository.findAllBynif(nif);
+    public List<Cliente> findAllByNif(String nif) {
+        return clienteRepository.findAllByNif(nif);
     }
 
     @Override
-    public List<Cliente> findAllBytelefono(Integer telefono) {
+    public List<Cliente> findAllByTelefono(Integer telefono) {
         return clienteRepository.findAllBytelefono(telefono);
     }
 
     @Override
     public List<Cliente> findAllByEmailAndNif(String email, String nif) {
         return clienteRepository.findAllByEmailAndNif(email, nif);
+    }
+
+    @Override
+    public Object findAllByVehiculo(Vehiculo vehiculo) {
+        return null;
     }
 
     @Override
