@@ -1,8 +1,6 @@
 package com.example.controllers;
 
-
 import com.example.entities.Vehiculo;
-
 import com.example.service.VehiculoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,11 +17,6 @@ import java.util.Optional;
 @Controller
 public class VehiculoController {
     private final VehiculoService vehiculoService;
-
-//    @GetMapping("/")
-//    public String index() {
-//        return "redirect:/vehiculos";
-//    }
 
     @GetMapping("vehiculos") // GET http://localhost:8080/vehiculos
     public String findAll(Model model) {
@@ -55,9 +48,6 @@ public class VehiculoController {
         return "vehiculo/vehiculo-list";
     }
 
-    /**
-     * OJO
-     */
     @GetMapping("vehiculos/modelo/{modelo}/marca/{marca}") // http://localhost:8080/vehiculos/modelo/BZ4X/marca/Toyota
     public String findByModeloAndMarca(Model model,
                                        @PathVariable String modelo,
@@ -77,7 +67,6 @@ public class VehiculoController {
         model.addAttribute("vehiculos", vehiculoService.findAllByYear(year));
         return "vehiculo/vehiculo-list";
     }
-
 
     @GetMapping("vehiculos/create") // http://localhost:8080/vehiculos/create
     public String createForm(Model model) {
@@ -110,4 +99,3 @@ public class VehiculoController {
         return "redirect:/vehiculos";
     }
 }
-
