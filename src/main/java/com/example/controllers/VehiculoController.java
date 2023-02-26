@@ -79,7 +79,7 @@ public class VehiculoController {
     public String editForm(Model model, @PathVariable Long id) {
         Optional<Vehiculo> vehiculoOptional = vehiculoService.findById(id);
         if (vehiculoOptional.isPresent()) {
-            model.addAttribute("address", vehiculoOptional.get());
+            model.addAttribute("vehiculo", vehiculoOptional.get());
         } else {
             model.addAttribute("error", "Vehiculo not found");
         }

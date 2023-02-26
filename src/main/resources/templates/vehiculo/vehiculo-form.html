@@ -44,7 +44,7 @@
         <div class="mb-3">
           <label>Elige un Tipo</label>
           <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
-            <option th:each="tipo: ${T(com.example.entities.enums.TipoVehiculo.values()}" th:value="${tipo}" th:text="${tipo}"></option>
+            <option th:each="tipo: ${T(com.example.entities.enums.TipoVehiculo).values()}" th:value="${tipo}" th:text="${tipo}"></option>
           </select>
         </div>
 
@@ -56,14 +56,14 @@
         <div class="mb-3">
           <label>Elige un Color</label>
           <select aria-label="Color" class="form-select" th:field="*{color}">
-            <option th:each="color: ${T(com.example.entities.enums.Color.values()}" th:value="${color}" th:text="${color}"></option>
+            <option th:each="color: ${T(com.example.entities.enums.Color).values()}" th:value="${color}" th:text="${color}"></option>
           </select>
         </div>
 
         <div class="mb-3">
           <label>Elige un Combustible</label>
           <select aria-label="Combustible" class="form-select" th:field="*{combustible}">
-            <option th:each="combustible: ${T(com.example.entities.enums.Combustible.values()}" th:value="${combustible}" th:text="${combustible}"></option>
+            <option th:each="combustible: ${T(com.example.entities.enums.Combustible).values()}" th:value="${combustible}" th:text="${combustible}"></option>
           </select>
         </div>
 
