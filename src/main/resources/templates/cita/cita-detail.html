@@ -29,14 +29,14 @@
             <div class="card" th:if="${error} == null">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Address Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${cita.cliente.nombreCompleto}"></h5>
+                    <h5 class="card-title" th:text="${cita.fechaHora}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Cliente: ${cita.cliente.nif}|"></li>
+                    <li class="list-group-item" th:if="${cita.cliente} != null" th:text="|Cliente: ${cita.cliente.nombreCompleto}|"></li>
 
-                    <li class="list-group-item" th:text="|Vehiculo: ${cita.vehiculo.modelo}|"></li>
+                    <li class="list-group-item" th:if="${cita.vehiculo} != null" th:text="|Vehiculo: ${cita.vehiculo.modelo}|"></li>
 
-                    <li class="list-group-item" th:text="|Taller: ${cita.taller.nombre}|"></li>
+                    <li class="list-group-item" th:if="${cita.taller} != null" th:text="|Taller: ${cita.taller.nombre}|"></li>
 
                 </ul>
                 <div class="card-body">

@@ -51,11 +51,18 @@
                 <tr th:each="cita: ${citas}">
                     <td th:text="${cita.id}"></td>
                     <td th:text="${cita.fechaHora}"></td>
-                    <td th:text="${cita.averia}"></td>
-                    <td th:text="${cita.vehiculo}"></td>
-                    <td th:text="${cita.taller}"></td>
+
+                    <td th:if="${cita.averia} != null" th:text="${cita.averia.descripcion}"></td>
+                    <td th:if="${cita.averia} == null">No data</td>
+
+                    <td th:if="${cita.vehiculo} != null" th:text="${cita.vehiculo.matricula}"></td>
+                    <td th:if="${cita.vehiculo} == null">No data</td>
+
+                    <td th:if="${cita.taller} != null" th:text="${cita.taller.nombre}"></td>
+                    <td th:if="${cita.taller} == null">No data</td>
+
                     <td>
-                        <a class="btn btn-primary" th:href="@{/citas/{id}/ver(id=${cita.id})}">Ver</a>
+                        <a class="btn btn-primary" th:href="@{/citas/{id}(id=${cita.id})}">Ver</a>
                         <a class="btn btn-success" th:href="@{/citas/{id}/edit(id=${cita.id})}">Editar</a>
                         <a class="btn btn-danger" th:href="@{/citas/{id}/delete(id=${cita.id})}">Borrar</a>
                     </td>

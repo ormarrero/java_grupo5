@@ -5,6 +5,7 @@ import com.example.entities.*;
 
 
 import com.example.service.CitaService;
+import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import java.util.Optional;
 public class CitaController {
 
     private final CitaService citaService;
+    private final ClienteService clienteService;
 
     // @GetMapping("/")
     // public String index() {
@@ -39,7 +41,7 @@ public class CitaController {
 
     // findById - buscar una cita por su id
     @GetMapping("citas/{id}")
-    public String findById(Model model, Long id) {
+    public String findById(Model model, @PathVariable Long id) {
         Optional<Cita> citaOptional = citaService.findById(id);
 
         if (citaOptional.isPresent()) {
@@ -108,18 +110,18 @@ public class CitaController {
     public String createForm(Model model) {
         Cita cita = new Cita();
         model.addAttribute("cita", cita); // objeto vacío para rellenar desde el formulario
-
+        model.addAttribute("clientes", clienteService.findAll());
         return "cita/cita-form";
     }
 
     //  formulario para editar una cita existente
 
-    @GetMapping("{/citas/{id}/edit}")
+    @GetMapping("citas/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
         Optional<Cita> citaOpt = citaService.findById(id);
         if (citaOpt.isPresent()) {
             model.addAttribute("cita", citaOpt.get());
-
+            model.addAttribute("clientes", clienteService.findAll());
         } else {
             model.addAttribute("error", "No hay citas");
         }
