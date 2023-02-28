@@ -1,9 +1,6 @@
 package com.example.service.implementations;
 
-
-
-
-
+import com.example.entities.Address;
 import com.example.entities.Cliente;
 
 import com.example.entities.Vehiculo;
@@ -60,7 +57,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Object findAllByVehiculo(Vehiculo vehiculo) {
-        return null;
+        return clienteRepository.findAllByVehiculo(vehiculo);
     }
 
     @Override
@@ -69,7 +66,13 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public void deleteById(Long id) {clienteRepository.deleteById(id); }
+    public void deleteById(Long id) { clienteRepository.deleteById(id);
+    }
+
+    @Override
+    public Object findAllByAddress(Address address) {
+        return clienteRepository.findAllByAddress(address);
+    }
 
 }
 

@@ -1,6 +1,7 @@
 package com.example.service;
 
 
+import com.example.entities.Address;
 import com.example.entities.Cliente;
 import com.example.entities.Vehiculo;
 
@@ -29,4 +30,5 @@ public interface ClienteService {
     void deleteById(Long id);
 
 
+    Object findAllByAddress(Address address);
 }

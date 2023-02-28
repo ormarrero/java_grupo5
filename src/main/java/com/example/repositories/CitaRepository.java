@@ -13,4 +13,6 @@ public interface CitaRepository extends JpaRepository<Cita, Long> {
     List<Cita> findAllByAveria(Averia averia);
     List<Cita> findAllByVehiculo(Vehiculo vehiculo);
     List<Cita> findAllByTaller(Taller taller);
+
+    List<Cita> findByClienteId(Long id);
 }

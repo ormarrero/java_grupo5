@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cliente Form</title>
+    <title>User Registration</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
@@ -13,37 +13,40 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${cliente.id}" class="h1-title">Modificar Cita <span th:text="${cliente.id}"></span></h1>
-        <h1 th:if="${cliente.id} == null" class="h1-title">Crear nuevo cliente</h1>
+        <h1>Registrar nuevo usuario</h1>
 
         <div class="col"></div>
 
         <div class="col">
 
             <div th:if="${error}">
-                <div class="alert alert-danger" role="alert" >
+                <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
                 </div>
-                <a type="button" class="btn btn-primary" th:href="@{/clientes}">Volver</a>
             </div>
 
-            <form th:if="${error} == null" th:action="@{/clientes}" method="POST" th:object="${cliente}">
+            <form th:action="@{/user/registration}" method="POST" th:object="${user}">
 
-                <input type="hidden" id="id" name="id" th:field="*{id}" />
+                <input type="hidden" id="id" name="id" th:field="*{id}"/>
 
                 <div class="mb-3">
-                    <label for="nombreCompleto" class="form-label">nombreCompleto</label>
-                    <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}" >
+                    <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address}">
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="number" class="form-control" id="email" th:field="*{email}">
+                    <input type="text" class="form-control" id="email" th:field="*{email}">
                 </div>
 
                 <div class="mb-3">
                     <label for="nif" class="form-label">Nif</label>
-                    <input type="text" class="form-control" id="nif" th:field="*{nif}" >
+                    <input type="text" class="form-control" id="nif" th:field="*{nif}">
                 </div>
 
                 <div class="mb-3">
@@ -51,7 +54,12 @@
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
 
-                <a class="btn btn-danger" th:href="@{/clientes}">Cancelar</a>
+                <div class="mb-3">
+                    <label for="vehiculo" class="form-label">Vehiculo</label>
+                    <input type="text" class="form-control" id="vehiculo" th:field="*{vehiculo}">
+                </div>
+
+                <a class="btn btn-danger" th:href="@{/foods}">Cancelar</a>
                 <button type="submit" class="btn btn-success">Guardar</button>
 
             </form>
