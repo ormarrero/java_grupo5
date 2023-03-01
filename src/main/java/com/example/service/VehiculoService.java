@@ -16,3 +16,4 @@ public interface VehiculoService {
     List<Vehiculo> findAllByYear(Integer year);
     Vehiculo save(Vehiculo vehiculo);
     void deleteById(Long id);
+}
