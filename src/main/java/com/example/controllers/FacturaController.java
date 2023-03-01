@@ -32,7 +32,7 @@ public class FacturaController {
 		if (facturaOptional.isPresent())
 			model.addAttribute("factura", facturaOptional.get());
 		else
-			model.addAttribute("error", "Factua not found");
+			model.addAttribute("error", "Factura not found");
 		
 		return "factura/factura-detail";
 	}
