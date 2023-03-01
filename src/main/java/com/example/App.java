@@ -112,7 +112,6 @@ public class App {
 
         CitaRepository citaRepo = context.getBean(CitaRepository.class);
 
-        LocalDateTime localDateTime = LocalDateTime.of(2023 , 2 ,25, 13, 45, 54);
 
         Cita cita1 = new Cita(null,cliente1, LocalDateTime.of(2023,2,21,17,35,22),averia2,vehiculo2,taller1);
         Cita cita2 = new Cita(null,cliente2, LocalDateTime.of(2023,2,25,13,45,54),averia1,vehiculo1,taller2);
