@@ -21,7 +21,7 @@ public class Cita {
     @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    private LocalDateTime fecha_hora;
+    private LocalDateTime fechaHora;
     @OneToOne
     @JoinColumn(name = "averia_id")
     private Averia averia;
