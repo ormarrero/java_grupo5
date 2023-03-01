@@ -21,7 +21,7 @@ public class Averia {
     private Long id;
     private TipoAveria tipo;
     private String descripcion;
-    private LocalDateTime fecha_hora;
+    private LocalDateTime fechaHora;
     private Grado grado;
 
 
