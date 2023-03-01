@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura Form</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: nav1}"></div>
+
+<div class="container text-center">
+    <div class="row">
+
+        <h1 th:if="${factura.id}" class="h1-title">Modificar Factura <span th:text="${factura.id}"></span></h1>
+        <h1 th:if="${factura.id} == null" class="h1-title">Crear nueva Factura</h1>
+
+        <div class="col"></div>
+
+        <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" >
+                    <p th:text="${error}"></p>
+                </div>
+                <a type="button" class="btn btn-primary" th:href="@{/facturas}">Volver</a>
+            </div>
+
+            <form th:if="${error} == null" th:action="@{/facturas}" method="POST" th:object="${factura}">
+
+                <input type="hidden" id="id" name="id" th:field="*{id}" />
+
+                <div class="mb-3">
+                    <label for="monto" class="form-label">Monto</label>
+                    <input type="number" class="form-control" id="monto" th:field="*{monto}" >
+                </div>
+
+                <div class="mb-3">
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" class="form-control" id="cliente" th:field="*{cliente}" >
+                </div>
+
+                <div class="mb-3">
+                    <label for="taller" class="form-label">Taller</label>
+                    <input type="text" class="form-control" id="taller" th:field="*{taller}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="averia" class="form-label">Averia</label>
+                    <input type="text" class="form-control" id="averia" th:field="*{averia}">
+                </div>
+
+
+                <a class="btn btn-danger" th:href="@{/facturas}">Cancelar</a>
+                <button type="submit" class="btn btn-success">Guardar</button>
+
+            </form>
+
+
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>
+<div th:replace="~{footer :: footer1}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
