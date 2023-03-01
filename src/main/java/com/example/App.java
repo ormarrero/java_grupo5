@@ -33,16 +33,17 @@ public class App {
 
 
         // CLIENTE-ADDRESS:
-        ClienteRepository clienteRepo = context.getBean(ClienteRepository.class);
         AddressRepository addressRepo = context.getBean(AddressRepository.class);
 
         Address address1 = new Address(null, "La Rosa", 1, "Madrid", 10);
         Address address2 = new Address(null, "La Piedra", 10, "Valencia", 12);
         Address address3 = new Address(null,"El casal",12,"Alicante",14);
         Address address4 = new Address(null,"San Felipe",31,"Valencia",19);
+        
         addressRepo.saveAll(List.of(address1,address2, address3, address4));
-
-
+    
+        ClienteRepository clienteRepo = context.getBean(ClienteRepository.class);
+        
         Cliente cliente1 = new Cliente(null,"Jésus Peña Peña", address1, "arm@gmail.com","777788555L",698524789,vehiculo1);
         Cliente cliente2 = new Cliente(null,"María Perez Soto", address2, "lug@gmail.com", "35874895Ñ",698547145,vehiculo2);
         Cliente cliente3 = new Cliente(null,"Raul Luz Casals",address1,"kkkuhg@gmail.com","6666652241P",555221478,vehiculo3);
