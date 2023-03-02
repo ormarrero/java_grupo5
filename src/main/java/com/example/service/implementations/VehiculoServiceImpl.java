@@ -57,7 +57,5 @@ public class VehiculoServiceImpl implements VehiculoService {
     }
 
     @Override
-    public void deleteById(Long id) {vehiculoRepository.deleteById(id);
-
-    }
+    public void deleteById(Long id) {vehiculoRepository.deleteById(id); }
 }
