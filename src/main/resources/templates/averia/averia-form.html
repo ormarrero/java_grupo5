@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Averia Form</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: nav1}"></div>
+
+<div class="container text-center">
+    <div class="row">
+
+        <h1 th:if="${averia.id}" class="h1-title">Modificar Avería <span th:text="${averia.id}"></span></h1>
+        <h1 th:if="${averia.id} == null" class="h1-title">Crear nueva Avería</h1>
+
+        <div class="col"></div>
+
+        <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" >
+                    <p th:text="${error}"></p>
+                </div>
+                <a type="button" class="btn btn-primary" th:href="@{/averias}">Volver</a>
+            </div>
+
+            <form th:if="${error} == null" th:action="@{/averias}" method="POST" th:object="${averia}">
+
+                <input type="hidden" id="id" name="id" th:field="*{id}" />
+
+                <div class="mb-3">
+                    <label>Elige un tipo:</label>
+                    <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
+                        <option th:each="tipo: ${T(com.example.entities.enums.TipoAveria).values()}" th:value="${tipo}" th:text="${tipo}"></option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Elige un grado:</label>
+                    <select aria-label="Grado" class="form-select" th:field="*{grado}">
+                        <option th:each="grado: ${T(com.example.entities.enums.Grado).values()}" th:value="${grado}" th:text="${grado}"></option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="fechaHora" class="form-label">Fecha y hora. Ej. DD/MM/AA, HH:MM</label>
+                    <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
+                </div>
+
+                     <div class="mb-3">
+                         <label for="descripcion" class="form-label">Descripción</label>
+                         <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
+                     </div>
+
+                     <a class="btn btn-danger" th:href="@{/averias}">Cancelar</a>
+                     <button type="submit" class="btn btn-success">Guardar</button>
+
+                 </form>
+
+
+             </div>
+
+             <div class="col"></div>
+         </div>
+     </div>
+
+     <div th:replace="~{footer :: footer1}"></div>
+     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+     <script th:src="@{/js/main.js}"></script>
+     </body>
+     </html>

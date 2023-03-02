@@ -18,10 +18,10 @@ import java.util.Optional;
 public class AddressController {
     private final AddressService addressService;
 
-    @GetMapping("/")
+   /* @GetMapping("/")
     public String index() {
         return "redirect:/addresses";
-    }
+    }*/
 
     @GetMapping("addresses") // GET http://localhost:8080/addresses
     public String findAll(Model model) {
