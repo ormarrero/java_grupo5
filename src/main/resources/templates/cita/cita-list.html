@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cita List</title>
+    <title>Cita list</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Cita</a>
+                    <a class="nav-link active" aria-current="page" href="#">Citas</a>
                 </li>
 
             </ul>
@@ -27,7 +27,6 @@
         </div>
     </div>
 </nav>
-
 
 <div class="container text-left">
     <div class="row">
@@ -40,27 +39,21 @@
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
+                    <th scope="col">Cliente</th>
                     <th scope="col">FechaHora</th>
-                    <th scope="col">Averia</th>
-                    <th scope="col">Vehiculo</th>
+                    <th scope="col">Avería</th>
+                    <th scope="col">Vehículo</th>
                     <th scope="col">Taller</th>
-                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="cita: ${citas}">
                     <td th:text="${cita.id}"></td>
+                    <td th:text="${cita.cliente}"></td>
                     <td th:text="${cita.fechaHora}"></td>
-
-                    <td th:if="${cita.averia} != null" th:text="${cita.averia.descripcion}"></td>
-                    <td th:if="${cita.averia} == null">No data</td>
-
-                    <td th:if="${cita.vehiculo} != null" th:text="${cita.vehiculo.matricula}"></td>
-                    <td th:if="${cita.vehiculo} == null">No data</td>
-
-                    <td th:if="${cita.taller} != null" th:text="${cita.taller.nombre}"></td>
-                    <td th:if="${cita.taller} == null">No data</td>
-
+                    <td th:text="${cita.averia}"></td>
+                    <td th:text="${cita.vehiculo}"></td>
+                    <td th:text="${cita.taller}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{/citas/{id}(id=${cita.id})}">Ver</a>
                         <a class="btn btn-success" th:href="@{/citas/{id}/edit(id=${cita.id})}">Editar</a>
@@ -73,7 +66,6 @@
 
     </div>
 </div>
-
 
 <footer class="bd-footer py-4 py-md-5 mt-5 bg-light">
     <div class="container py-4 py-md-5 px-4 px-md-3">

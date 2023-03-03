@@ -32,30 +32,29 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="fechaHora" class="form-label">Fecha Hora</label>
-                    <input type="datetime-local" class="form-control" id="fechaHora" th:field="*{fechaHora}">
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" class="form-control" id="cliente" th:field="*{cliente}" >
                 </div>
 
                 <div class="mb-3">
-                    <select aria-label="Clientes" class="form-select" th:field="*{cliente}">
-                        <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nombreCompleto}"></option>
-                    </select>
+                    <label for="fechaHora" class="form-label">FechaHora</label>
+                    <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
                 </div>
 
-<!--                <div class="mb-3">-->
-<!--                    <label for="cliente" class="form-label">Cliente</label>-->
-<!--                    <input type="text" class="form-control" id="cliente" th:field="*{citas}" >-->
-<!--                </div>-->
+                <div class="mb-3">
+                    <label for="averia" class="form-label">Averia</label>
+                    <input type="text" class="form-control" id="averia" th:field="*{averia}">
+                </div>
 
-<!--                <div class="mb-3">-->
-<!--                    <label for="averia" class="form-label">Avería</label>-->
-<!--                    <input type="number" class="form-control" id="averia" th:field="*{citas}">-->
-<!--                </div>-->
+                <div class="mb-3">
+                    <label for="vehiculo" class="form-label">Vehiculo</label>
+                    <input type="text" class="form-control" id="vehiculo" th:field="*{vehiculo}">
+                </div>
 
-<!--                <div class="mb-3">-->
-<!--                    <label for="vehiculo" class="form-label">Vehículo</label>-->
-<!--                    <input type="text" class="form-control" id="vehiculo" th:field="*{citas}" >-->
-<!--                </div>-->
+                <div class="mb-3">
+                    <label for="taller" class="form-label">Taller</label>
+                    <input type="text" class="form-control" id="taller" th:field="*{taller}">
+                </div>
 
 
 
@@ -70,7 +69,6 @@
         <div class="col"></div>
     </div>
 </div>
-
 <div th:replace="~{footer :: footer1}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/main.js}"></script>

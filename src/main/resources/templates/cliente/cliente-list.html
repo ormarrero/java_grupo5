@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cliente List</title>
+    <title>Cliente list</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Cliente</a>
+                    <a class="nav-link active" aria-current="page" href="#">Clientes</a>
                 </li>
 
             </ul>
@@ -28,32 +28,34 @@
     </div>
 </nav>
 
-
 <div class="container text-left">
     <div class="row">
         <h1>Listado de clientes</h1>
 
         <div class="col mt-3">
-            <a class="btn btn-success" th:href="@{/cliente/create}">Crear nuevo cliente</a>
+            <a class="btn btn-success" th:href="@{/citas/create}">Crear nuevo cliente</a>
 
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Nif</th>
+                    <th scope="col">NombreCompleto</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Nombre Completo</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Nif</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Vehiculo</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="cliente: ${clientes}">
                     <td th:text="${cliente.id}"></td>
-                    <td th:text="${cliente.telefono}"></td>
-                    <td th:text="${cliente.nif}"></td>
-                    <td th:text="${cliente.email}"></td>
                     <td th:text="${cliente.nombreCompleto}"></td>
+                    <td th:text="${cliente.address}"></td>
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.nif}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.vehiculo}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{/clientes/{id}(id=${cliente.id})}">Ver</a>
                         <a class="btn btn-success" th:href="@{/clientes/{id}/edit(id=${cliente.id})}">Editar</a>
@@ -66,7 +68,6 @@
 
     </div>
 </div>
-
 
 <footer class="bd-footer py-4 py-md-5 mt-5 bg-light">
     <div class="container py-4 py-md-5 px-4 px-md-3">

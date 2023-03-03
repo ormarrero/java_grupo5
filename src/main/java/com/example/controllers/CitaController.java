@@ -1,13 +1,8 @@
 package com.example.controllers;
 
-
-import com.example.entities.*;
-
-
+import com.example.entities.Cita;
 import com.example.service.CitaService;
-import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,135 +19,73 @@ import java.util.Optional;
 public class CitaController {
 
     private final CitaService citaService;
-    private final ClienteService clienteService;
 
-    // @GetMapping("/")
-    // public String index() {
-    //    return "redirect:/citas";
-    // }
+    //  @GetMapping("/")
+    //  public String index() {
+    //      return "redirect:/talleres";
+    //  }
 
-    // findAll - buscar todas las citas
+
     @GetMapping("citas")
     public String findAll(Model model) {
         List<Cita> citas = citaService.findAll();
         model.addAttribute("citas", citas);
         return "cita/cita-list";
+
     }
 
-    // findById - buscar una cita por su id
     @GetMapping("citas/{id}")
     public String findById(Model model, @PathVariable Long id) {
         Optional<Cita> citaOptional = citaService.findById(id);
+        if (citaOptional.isPresent())
+            model.addAttribute("cita", citaOptional.get());
+        else
+            model.addAttribute("error", "Cita not found");
 
-        if (citaOptional.isPresent()) {
-            Cita cita = citaOptional.get();
-            model.addAttribute("cita", cita);
-            return "cita/cita-detail";
-
-        } else {
-            model.addAttribute("error", "Not found");
-            return "cita/cita-detail";
-        }
+        return "cita/cita-detail";
 
     }
 
-    // findAllByCliente - buscar todas las citas por Id de cliente
-    @GetMapping("citas/cliente/{id}")
-    public String findAllByClienteId(Model model, Long id) {
-        List<Cita> citas = citaService.findAllByClienteId(id);
-        model.addAttribute("citas", citas);
-        return "cita/cita-list";
-    }
-    //  BUSCAR CITA POR CLIENTE
-    @GetMapping("citas/cliente/{cliente}") // http://localhost:8080/clientes
-    public String findAllByCliente(Model model, @PathVariable Cliente cliente) {
-        model.addAttribute("citas", citaService.findAllByCliente(cliente));
-
-        return "cita/cita-list";
-    }
-    // BUSCAR POR FECHA HORA
-    @GetMapping("citas/fechaHora/{fechaHora}") // http://localhost:8080/cita/fechaHora
-    public String findAllByFechaHora(Model model, @PathVariable LocalDateTime fechaHora) {
+    @GetMapping("citas/fechaHora/{fechaHora}")
+    public String findByFechaHora(Model model, @PathVariable LocalDateTime fechaHora) {
         model.addAttribute("citas", citaService.findAllByFechaHora(fechaHora));
-
         return "cita/cita-list";
-    }
-    // BUSCAR POR AVERIA
-    @GetMapping("citas/averia/{averia}") // http://localhost:8080/cita/averia
-    public String findAllByAveria(Model model, @PathVariable Averia averia) {
-        model.addAttribute("citas", citaService.findAllByAveria(averia));
 
-        return "cita/cita-list";
     }
 
-    // BUSCAR POR VEHICULO
-    @GetMapping("citas/vehiculo/{vehiculo}") // http://localhost:8080/cita/vehiculo
-    public String findAllByVehiculo(Model model, @PathVariable Vehiculo vehiculo) {
-        model.addAttribute("citas", citaService.findAllByVehiculo(vehiculo));
-
-        return "cita/cita-list";
-    }
-    // BUSCAR POR TALLER
-    @GetMapping("citas/taller/{taller}") // http://localhost:8080/cita/taller
-    public String findAllByTaller(Model model, @PathVariable Taller taller) {
-        model.addAttribute("citas", citaService.findAllByTaller(taller));
-
-        return "cita/cita-list";
-    }
-
-
-
-
-    // __________________________________________________________
-    //  formulario para crear una nueva cita
 
     @GetMapping("citas/create")
     public String createForm(Model model) {
         Cita cita = new Cita();
-        model.addAttribute("cita", cita); // objeto vacío para rellenar desde el formulario
-        model.addAttribute("clientes", clienteService.findAll());
+        model.addAttribute("cita", cita);
         return "cita/cita-form";
-    }
 
-    //  formulario para editar una cita existente
+    }
 
     @GetMapping("citas/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        Optional<Cita> citaOpt = citaService.findById(id);
-        if (citaOpt.isPresent()) {
-            model.addAttribute("cita", citaOpt.get());
-            model.addAttribute("clientes", clienteService.findAll());
+        Optional<Cita> citaOptional = citaService.findById(id);
+        if (citaOptional.isPresent()) {
+            model.addAttribute("cita", citaOptional.get());
         } else {
-            model.addAttribute("error", "No hay citas");
+            model.addAttribute("error", "Cita not found");
         }
 
         return "cita/cita-form";
     }
 
-    // guardar formulario (save)
-
-    @PostMapping("citas") // POST http://localhost:8080/citas
+    @PostMapping("citas")
     public String saveForm(@ModelAttribute Cita cita) {
         citaService.save(cita);
-        return "redirect:/citas"; // Redirección a GET /cita
-    }
+        return "redirect:/citas";
 
-    // deleteById
+    }
 
     @GetMapping("citas/{id}/delete")
-    public String deleteById(@PathVariable Long id, Model model) {
-
-        try {
-            citaService.deleteById(id);
-            return "redirect:/citas";
-        } catch (EmptyResultDataAccessException e) {
-            model.addAttribute("error", "No se puede borrar un elemento que no existe");
-        }
-        return "cita/cita-list";
-
+    public String deleteById(@PathVariable Long id) {
+        citaService.deleteById(id);
+        return "redirect:/citas";
     }
-
-
 
 
 }

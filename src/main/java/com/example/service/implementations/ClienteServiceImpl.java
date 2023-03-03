@@ -1,9 +1,11 @@
 package com.example.service.implementations;
 
-import com.example.entities.Address;
+
+
+
+
 import com.example.entities.Cliente;
 
-import com.example.entities.Vehiculo;
 import com.example.repositories.ClienteRepository;
 import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
@@ -19,20 +21,17 @@ public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository clienteRepository;
 
-
     @Override
     public List<Cliente> findAll() {
-        return  clienteRepository.findAll();
-    }
+        return clienteRepository.findAll(); }
 
     @Override
     public Optional<Cliente> findById(Long id) {
-        return Optional.empty();
-    }
+        return clienteRepository.findById(id);  }
 
     @Override
     public List<Cliente> findAllByNombreCompleto(String nombreCompleto) {
-        return clienteRepository.findAllByNombreCompleto( nombreCompleto);
+        return clienteRepository.findAllByNombreCompleto(nombreCompleto);
     }
 
     @Override
@@ -47,7 +46,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public List<Cliente> findAllByTelefono(Integer telefono) {
-        return clienteRepository.findAllBytelefono(telefono);
+        return clienteRepository.findAllByTelefono(telefono);
     }
 
     @Override
@@ -56,23 +55,11 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Object findAllByVehiculo(Vehiculo vehiculo) {
-        return clienteRepository.findAllByVehiculo(vehiculo);
-    }
-
-    @Override
     public Cliente save(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
 
     @Override
-    public void deleteById(Long id) { clienteRepository.deleteById(id);
-    }
-
-    @Override
-    public Object findAllByAddress(Address address) {
-        return clienteRepository.findAllByAddress(address);
-    }
+    public void deleteById(Long id) {clienteRepository.deleteById(id); }
 
 }
-

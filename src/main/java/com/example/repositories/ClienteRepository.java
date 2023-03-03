@@ -12,9 +12,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     List<Cliente> findAllByAddress(Address address);
     List<Cliente> findAllByEmail(String email);
     List<Cliente> findAllByNif(String nif);
-    List<Cliente> findAllBytelefono(Integer telefono);
+    List<Cliente> findAllByTelefono(Integer telefono);
     List<Cliente> findAllByEmailAndNif(String email, String nif);
     List<Cliente> findAllByVehiculo(Vehiculo vehiculo);
-
-
 }

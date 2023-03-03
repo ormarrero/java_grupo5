@@ -13,8 +13,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${cliente.id}" class="h1-title">Modificar Cita <span th:text="${cliente.id}"></span></h1>
-        <h1 th:if="${cliente.id} == null" class="h1-title">Crear nuevo cliente</h1>
+        <h1 th:if="${cliente.id}" class="h1-title">Modificar Cliente <span th:text="${cliente.id}"></span></h1>
+        <h1 th:if="${cliente.id} == null" class="h1-title">Crear nuevo Cliente</h1>
 
         <div class="col"></div>
 
@@ -32,24 +32,36 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="nombreCompleto" class="form-label">nombreCompleto</label>
+                    <label for="nombreCompleto" class="form-label">NombreCompleto</label>
                     <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}" >
                 </div>
 
                 <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address}" >
+                </div>
+
+                <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="number" class="form-control" id="email" th:field="*{email}">
+                    <input type="text" class="form-control" id="email" th:field="*{email}">
                 </div>
 
                 <div class="mb-3">
                     <label for="nif" class="form-label">Nif</label>
-                    <input type="text" class="form-control" id="nif" th:field="*{nif}" >
+                    <input type="text" class="form-control" id="nif" th:field="*{nif}">
                 </div>
 
                 <div class="mb-3">
                     <label for="telefono" class="form-label">Telefono</label>
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
+
+                <div class="mb-3">
+                    <label for="vehiculo" class="form-label">Vehiculo</label>
+                    <input type="text" class="form-control" id="vehiculo" th:field="*{vehiculo}">
+                </div>
+
+
 
                 <a class="btn btn-danger" th:href="@{/clientes}">Cancelar</a>
                 <button type="submit" class="btn btn-success">Guardar</button>
@@ -62,7 +74,6 @@
         <div class="col"></div>
     </div>
 </div>
-
 <div th:replace="~{footer :: footer1}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/main.js}"></script>

@@ -1,9 +1,8 @@
+
 package com.example.service;
 
 
-import com.example.entities.Address;
 import com.example.entities.Cliente;
-import com.example.entities.Vehiculo;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,12 +22,6 @@ public interface ClienteService {
 
     List<Cliente> findAllByEmailAndNif(String email, String nif);
 
-
-    Object findAllByVehiculo(Vehiculo vehiculo);
-
     Cliente save(Cliente cliente);
     void deleteById(Long id);
-
-
-    Object findAllByAddress(Address address);
 }
