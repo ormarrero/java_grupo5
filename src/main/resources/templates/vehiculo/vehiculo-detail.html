@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Vehiculo Detail</title>
+
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: nav1}"></div>
+
+<div class="container text-center">
+  <div class="row">
+
+    <h1 class="h1-title">Detalle de Vehículo</h1>
+    <div class="col"></div>
+
+    <div class="col">
+
+      <div th:if="${error}">
+        <div class="alert alert-danger" role="alert" >
+          <p th:text="${error}"></p>
+        </div>
+        <a class="btn btn-primary" th:href="@{/vehiculos}">Volver</a>
+      </div>
+
+
+      <div class="card" th:if="${error} == null">
+        <img src="https://dummyimage.com/300" class="card-img-top" alt="Vehiculo Image">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${vehiculo.modelo}"></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" th:text="|Marca: ${vehiculo.marca}|"></li>
+
+          <li class="list-group-item" th:text="|Tipo: ${vehiculo.tipo}|"></li>
+
+          <li class="list-group-item" th:text="|Matricula: ${vehiculo.matricula}|"></li>
+
+          <li class="list-group-item" th:text="|Color: ${vehiculo.color}|"></li>
+
+          <li class="list-group-item" th:text="|Combustible: ${vehiculo.combustible}|"></li>
+
+          <li class="list-group-item" th:text="|Year: ${vehiculo.year}|"></li>
+
+        </ul>
+        <div class="card-body">
+          <a class="btn btn-primary" th:href="@{/vehiculos}">Volver</a>
+          <a class="btn btn-success" th:href="@{/vehiculos/{id}/edit(id=${vehiculo.id})}">Editar</a>
+          <a class="btn btn-danger" th:href="@{/vehiculos/{id}/delete(id=${vehiculo.id})}">Borrar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>
+
+<div th:replace="~{footer :: footer1}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
