@@ -1,7 +1,11 @@
 package com.example.controllers;
 
+import com.example.entities.Address;
 import com.example.entities.Cliente;
+import com.example.entities.Vehiculo;
+import com.example.service.AddressService;
 import com.example.service.ClienteService;
+import com.example.service.VehiculoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +22,8 @@ import java.util.Optional;
 public class ClienteController {
 
     private final ClienteService clienteService;
+    private final AddressService addressService;
+    private final VehiculoService vehiculoService;
 
     //  @GetMapping("/")
     //  public String index() {
@@ -36,8 +42,11 @@ public class ClienteController {
     @GetMapping("clientes/{id}")
     public String findById(Model model, @PathVariable Long id) {
         Optional<Cliente> clienteOptional = clienteService.findById(id);
-        if (clienteOptional.isPresent())
+        if (clienteOptional.isPresent()) {
             model.addAttribute("cliente", clienteOptional.get());
+            model.addAttribute("addresses", clienteOptional.get().getAddress());
+            model.addAttribute("vehiculos", clienteOptional.get().getVehiculo());
+    }
         else
             model.addAttribute("error", "Cliente not found");
 
@@ -50,6 +59,12 @@ public class ClienteController {
         model.addAttribute("clientes",clienteService.findAllByNombreCompleto(nombreCompleto));
         return "cliente/cliente-list";
 
+    }
+
+    @GetMapping("clientes/address/{address}")
+    public String findByAddress(Model model, @PathVariable Address address){
+        model.addAttribute("clientes", clienteService.findAllByAddress(address));
+        return "cliente/cliente-list";
     }
 
     @GetMapping("clientes/email/{email}")
@@ -68,23 +83,26 @@ public class ClienteController {
 
     @GetMapping("clientes/telefono/{telefono}")
     public String findByTelefono(Model model, @PathVariable Integer telefono) {
-        model.addAttribute("talleres",clienteService.findAllByTelefono(telefono));
+        model.addAttribute("clientes",clienteService.findAllByTelefono(telefono));
         return "cliente/cliente-list";
 
     }
-
-    @GetMapping("clientes/email/{email}/nif/{nif}")
-    public String findByEmailAndNif(Model model, @PathVariable String email,
-                                    @PathVariable String nif) {
-        model.addAttribute("clientes",clienteService.findAllByEmailAndNif(email, nif));
-        return "taller/taller-list";
-
+    @GetMapping("clientes/vehiculo/{vehiculo}")
+    public String findByVehiculo(Model model, @PathVariable Vehiculo vehiculo){
+        model.addAttribute("clientes", clienteService.findAllByVehiculo(vehiculo));
+        return "cliente/cliente-list";
     }
+
+
 
     @GetMapping("clientes/create")
     public String createForm(Model model) {
         Cliente cliente = new Cliente();
         model.addAttribute("cliente", cliente);
+        model.addAttribute("addresses", addressService.findAll());
+        model.addAttribute("vehiculos", vehiculoService.findAll());
+
+
         return "cliente/cliente-form";
 
     }
@@ -94,6 +112,13 @@ public class ClienteController {
         Optional<Cliente> clienteOptional = clienteService.findById(id);
         if (clienteOptional.isPresent()) {
             model.addAttribute("cliente", clienteOptional.get());
+            model.addAttribute("address", clienteOptional.get().getAddress());
+            model.addAttribute("vehiculo", clienteOptional.get().getVehiculo());
+            model.addAttribute("addresses", addressService.findAll());
+            model.addAttribute("vehiculos", vehiculoService.findAll());
+
+
+
         }
         else {
             model.addAttribute("error", "Cliente not found");

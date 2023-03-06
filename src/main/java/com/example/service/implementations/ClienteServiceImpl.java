@@ -4,8 +4,10 @@ package com.example.service.implementations;
 
 
 
+import com.example.entities.Address;
 import com.example.entities.Cliente;
 
+import com.example.entities.Vehiculo;
 import com.example.repositories.ClienteRepository;
 import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
@@ -35,6 +37,11 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
+    public List<Cliente> findAllByAddress(Address address) {
+        return clienteRepository.findAllByAddress(address);
+    }
+
+    @Override
     public List<Cliente> findAllByEmail(String email) {
         return clienteRepository.findAllByEmail(email);
     }
@@ -47,6 +54,11 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public List<Cliente> findAllByTelefono(Integer telefono) {
         return clienteRepository.findAllByTelefono(telefono);
+    }
+
+    @Override
+    public List<Cliente> findAllByVehiculo(Vehiculo vehiculo) {
+        return clienteRepository.findAllByVehiculo(vehiculo);
     }
 
     @Override

@@ -33,7 +33,7 @@
         <h1>Listado de clientes</h1>
 
         <div class="col mt-3">
-            <a class="btn btn-success" th:href="@{/citas/create}">Crear nuevo cliente</a>
+            <a class="btn btn-success" th:href="@{/clientes/create}">Crear nuevo cliente</a>
 
             <table class="table">
                 <thead>
@@ -51,11 +51,11 @@
                 <tr th:each="cliente: ${clientes}">
                     <td th:text="${cliente.id}"></td>
                     <td th:text="${cliente.nombreCompleto}"></td>
-                    <td th:text="${cliente.address}"></td>
+                    <td th:text="${cliente.address.calle}"></td>
                     <td th:text="${cliente.email}"></td>
                     <td th:text="${cliente.nif}"></td>
                     <td th:text="${cliente.telefono}"></td>
-                    <td th:text="${cliente.vehiculo}"></td>
+                    <td th:text="${cliente.vehiculo.marca}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{/clientes/{id}(id=${cliente.id})}">Ver</a>
                         <a class="btn btn-success" th:href="@{/clientes/{id}/edit(id=${cliente.id})}">Editar</a>

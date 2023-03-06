@@ -32,7 +32,7 @@
                     <h5 class="card-title" th:text="${cliente.nombreCompleto}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Address: ${cliente.address}|"></li>
+                    <li class="list-group-item" th:text="|Address: ${cliente.address.calle}, ${cliente.address.ciudad}|"></li>
 
                     <li class="list-group-item" th:text="|Email: ${cliente.email}|"></li>
 
@@ -40,7 +40,7 @@
 
                     <li class="list-group-item" th:text="|Telefono: ${cliente.telefono}|"></li>
 
-                    <li class="list-group-item" th:text="|Vehiculo: ${cliente.vehiculo}|"></li>
+                    <li class="list-group-item" th:text="|Vehiculo: ${cliente.vehiculo.marca}|"></li>
 
 
 

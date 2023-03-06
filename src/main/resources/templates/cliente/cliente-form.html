@@ -37,9 +37,17 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" th:field="*{address}" >
+                    <label>Elige una Address:</label>
+                    <select aria-label="Addresses"
+                            class="form-select"
+                            th:field="*{address}">
+                        <option th:each="address : ${addresses}"
+                                th:value="${address.id}"
+                                th:text="|${address.calle}, ${address.ciudad}|"></option>
+                    </select>
                 </div>
+
+
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -57,8 +65,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="vehiculo" class="form-label">Vehiculo</label>
-                    <input type="text" class="form-control" id="vehiculo" th:field="*{vehiculo}">
+                    <label>Elige un Vehículo:</label>
+                    <select aria-label="Vehiculos"
+                            class="form-select"
+                            th:field="*{vehiculo}">
+                        <option th:each="vehiculo : ${vehiculos}"
+                                th:value="${vehiculo.id}"
+                                th:text="|${vehiculo.modelo}, ${vehiculo.matricula}|"></option>
+                    </select>
                 </div>
 
 
