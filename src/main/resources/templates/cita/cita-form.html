@@ -32,8 +32,14 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" id="cliente" th:field="*{cliente}" >
+                    <label>Elige un Cliente:</label>
+                    <select aria-label="Clientes"
+                            class="form-select"
+                            th:field="*{cliente}">
+                        <option th:each="cliente : ${clientes}"
+                                th:value="${cliente.id}"
+                                th:text="|${cliente.nombreCompleto}, ${cliente.nif}|"></option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
@@ -41,21 +47,37 @@
                     <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
                 </div>
 
-                <!--<div class="mb-3">
-                    <label>Elige un tipo:</label>
-                    <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
-                        <option th:each="tipo: ${T(com.example.entities.enums.TipoAveria).values()}" th:value="${tipo}" th:text="${tipo}"></option>
-                    </select>
-                </div>-->
-
                 <div class="mb-3">
-                    <label for="vehiculo" class="form-label">Vehiculo</label>
-                    <input type="text" class="form-control" id="vehiculo" th:field="*{vehiculo}">
+                    <label>Elige la hora de la avería:</label>
+                    <select aria-label="Averias"
+                            class="form-select"
+                            th:field="*{averia}">
+                        <option th:each="averia : ${averias}"
+                                th:value="${averia.id}"
+                                th:text="|${averia.fechaHora}, ${averia.tipo}|"></option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="taller" class="form-label">Taller</label>
-                    <input type="text" class="form-control" id="taller" th:field="*{taller}">
+                    <label>Elige un Vehículo:</label>
+                    <select aria-label="Vehiculos"
+                            class="form-select"
+                            th:field="*{vehiculo}">
+                        <option th:each="vehiculo : ${vehiculos}"
+                                th:value="${vehiculo.id}"
+                                th:text="|${vehiculo.modelo}, ${vehiculo.matricula}|"></option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label>Elige un Taller:</label>
+                    <select aria-label="Talleres"
+                            class="form-select"
+                            th:field="*{taller}">
+                        <option th:each="taller : ${talleres}"
+                                th:value="${taller.id}"
+                                th:text="|${taller.nombre}|"></option>
+                    </select>
                 </div>
 
 

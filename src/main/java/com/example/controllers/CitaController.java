@@ -2,7 +2,7 @@ package com.example.controllers;
 
 import com.example.entities.Cita;
 import com.example.entities.enums.TipoAveria;
-import com.example.service.CitaService;
+import com.example.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +20,11 @@ import java.util.Optional;
 public class CitaController {
 
     private final CitaService citaService;
+    private final ClienteService clienteService;
+
+    private final AveriaService averiaService;
+    private final VehiculoService vehiculoService;
+    private final TallerService tallerService;
 
     //  @GetMapping("/")
     //  public String index() {
@@ -39,7 +44,13 @@ public class CitaController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Cita> citaOptional = citaService.findById(id);
         if (citaOptional.isPresent())
+        {
             model.addAttribute("cita", citaOptional.get());
+            model.addAttribute("clientes", citaOptional.get().getCliente());
+            model.addAttribute("averias", citaOptional.get().getAveria());
+            model.addAttribute("vehiculos", citaOptional.get().getVehiculo());
+            model.addAttribute("talleres", citaOptional.get().getTaller());
+        }
         else
             model.addAttribute("error", "Cita not found");
 
@@ -53,18 +64,15 @@ public class CitaController {
         return "cita/cita-list";
 
     }
-    /*@GetMapping("citas/tipoAveria/{tipoAveria}")
-    public String findByTipoAveria(Model model, @PathVariable TipoAveria tipoAveria) {
-        model.addAttribute("citas", citaService.findAllByTipoAveria(tipoAveria));
-        return "cita/cita-list";
-
-    }*/
-
 
     @GetMapping("citas/create")
     public String createForm(Model model) {
         Cita cita = new Cita();
         model.addAttribute("cita", cita);
+        model.addAttribute("clientes", clienteService.findAll());
+        model.addAttribute("averias", averiaService.findAll());
+        model.addAttribute("vehiculos", vehiculoService.findAll());
+        model.addAttribute("talleres", tallerService.findAll());
 
         return "cita/cita-form";
 
@@ -75,6 +83,16 @@ public class CitaController {
         Optional<Cita> citaOptional = citaService.findById(id);
         if (citaOptional.isPresent()) {
             model.addAttribute("cita", citaOptional.get());
+
+            model.addAttribute("cliente", citaOptional.get().getCliente());
+            model.addAttribute("averia", citaOptional.get().getAveria());
+            model.addAttribute("vehiculo", citaOptional.get().getVehiculo());
+            model.addAttribute("taller", citaOptional.get().getTaller());
+
+            model.addAttribute("clientes", clienteService.findAll());
+            model.addAttribute("averias", averiaService.findAll());
+            model.addAttribute("vehiculos", vehiculoService.findAll());
+            model.addAttribute("talleres", tallerService.findAll());
         } else {
             model.addAttribute("error", "Cita not found");
         }

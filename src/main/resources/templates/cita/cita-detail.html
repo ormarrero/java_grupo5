@@ -32,11 +32,11 @@
                     <h5 class="card-title" th:text="${cita.cliente.nombreCompleto}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|FechaHora: ${cita.fechaHora}|"></li>
+                    <li class="list-group-item" th:text="|Fecha y hora: ${cita.fechaHora}|"></li>
 
-                    <li class="list-group-item" th:text="|Averia: ${cita.averia.tipo}|"></li>
+                    <li class="list-group-item" th:text="|Tipo de avería: ${cita.averia.tipo}|"></li>
 
-                    <li class="list-group-item" th:text="|Vehiculo: ${cita.vehiculo.matricula}|"></li>
+                    <li class="list-group-item" th:text="|Vehículo: ${cita.vehiculo.matricula}|"></li>
 
                     <li class="list-group-item" th:text="|Taller: ${cita.taller.nombre}|"></li>
 

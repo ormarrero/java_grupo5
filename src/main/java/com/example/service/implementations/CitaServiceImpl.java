@@ -1,7 +1,7 @@
 package com.example.service.implementations;
 
 
-import com.example.entities.Cita;
+import com.example.entities.*;
 
 import com.example.repositories.CitaRepository;
 import com.example.service.CitaService;
@@ -28,13 +28,23 @@ public class CitaServiceImpl implements CitaService {
     public Optional<Cita> findById(Long id) {
         return citaRepository.findById(id);
     }
-    
+
     @Override
     public List<Cita> findAllByFechaHora(LocalDateTime fechaHora) {
         return citaRepository.findAllByFechaHora(fechaHora);
     }
-    
-    
+
+    @Override
+    public Object findAllByCliente(Cliente cliente) {
+        return citaRepository.findAllByCliente(cliente);
+    }
+
+    @Override
+    public Object findAllByVehiculo(Vehiculo vehiculo) {
+        return citaRepository.findAllByVehiculo(vehiculo);
+    }
+
+
     @Override
     public Cita save(Cita cita) {
         return citaRepository.save(cita);
@@ -43,5 +53,15 @@ public class CitaServiceImpl implements CitaService {
     @Override
     public void deleteById(Long id) {
         citaRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Cita> findAllByAveria(Averia averia) {
+        return citaRepository.findAllByAveria(averia);
+    }
+
+    @Override
+    public Object findAllByTaller(Taller taller) {
+        return citaRepository.findAllByTaller(taller);
     }
 }

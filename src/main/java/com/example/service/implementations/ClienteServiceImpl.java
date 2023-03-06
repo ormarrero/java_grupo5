@@ -4,8 +4,10 @@ package com.example.service.implementations;
 
 
 
+import com.example.entities.Address;
 import com.example.entities.Cliente;
 
+import com.example.entities.Vehiculo;
 import com.example.repositories.ClienteRepository;
 import com.example.service.ClienteService;
 import lombok.AllArgsConstructor;
@@ -33,6 +35,11 @@ public class ClienteServiceImpl implements ClienteService {
     public List<Cliente> findAllByNombreCompleto(String nombreCompleto) {
         return clienteRepository.findAllByNombreCompleto(nombreCompleto);
     }
+
+    @Override
+    public List<Cliente> findAllByAddress(Address address) {
+        return clienteRepository.findAllByAddress(address);
+    }
     
     @Override
     public List<Cliente> findAllByEmail(String email) {
@@ -40,18 +47,23 @@ public class ClienteServiceImpl implements ClienteService {
     }
     
     @Override
-    public List<Cliente> findAllBynif(String nif) {
-        return clienteRepository.findAllBynif(nif);
+    public List<Cliente> findAllByNif(String nif) {
+        return clienteRepository.findAllByNif(nif);
     }
     
     @Override
-    public List<Cliente> findAllBytelefono(Integer telefono) {
-        return clienteRepository.findAllBytelefono(telefono);
+    public List<Cliente> findAllByTelefono(Integer telefono) {
+        return clienteRepository.findAllByTelefono(telefono);
     }
     
     @Override
     public List<Cliente> findAllByEmailAndNif(String email, String nif) {
         return clienteRepository.findAllByEmailAndNif(email, nif);
+    }
+
+    @Override
+    public List<Cliente> findAllByVehiculo(Vehiculo vehiculo){
+        return clienteRepository.findAllByVehiculo(vehiculo);
     }
     
     @Override
