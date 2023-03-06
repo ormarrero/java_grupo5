@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.entities.Cita;
+import com.example.entities.enums.TipoAveria;
 import com.example.service.CitaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -52,12 +53,19 @@ public class CitaController {
         return "cita/cita-list";
 
     }
+    /*@GetMapping("citas/tipoAveria/{tipoAveria}")
+    public String findByTipoAveria(Model model, @PathVariable TipoAveria tipoAveria) {
+        model.addAttribute("citas", citaService.findAllByTipoAveria(tipoAveria));
+        return "cita/cita-list";
+
+    }*/
 
 
     @GetMapping("citas/create")
     public String createForm(Model model) {
         Cita cita = new Cita();
         model.addAttribute("cita", cita);
+
         return "cita/cita-form";
 
     }

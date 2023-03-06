@@ -3,6 +3,7 @@ package com.example.service.implementations;
 
 import com.example.entities.*;
 
+import com.example.entities.enums.TipoAveria;
 import com.example.repositories.CitaRepository;
 import com.example.service.CitaService;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,11 @@ public class CitaServiceImpl implements CitaService {
         return citaRepository.findByClienteId(id);
     }
 
+    /*@Override
+    public List<Cita> findAllByTipoAveria(TipoAveria tipoAveria) {
+        return citaRepository.findAllByTipoAveria(tipoAveria);
+    }*/
+
     @Override
     public List<Cita> findAllByFechaHora(LocalDateTime fechaHora) {
         return citaRepository.findAllByFechaHora(fechaHora);
@@ -53,6 +59,8 @@ public class CitaServiceImpl implements CitaService {
     public List<Cita> findAllByAveria(Averia averia) {
         return citaRepository.findAllByAveria(averia);
     }
+
+
 
     @Override
     public Object findAllByTaller(Taller taller) {

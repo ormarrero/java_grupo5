@@ -41,10 +41,12 @@
                     <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
                 </div>
 
-                <div class="mb-3">
-                    <label for="averia" class="form-label">Averia</label>
-                    <input type="text" class="form-control" id="averia" th:field="*{averia}">
-                </div>
+                <!--<div class="mb-3">
+                    <label>Elige un tipo:</label>
+                    <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
+                        <option th:each="tipo: ${T(com.example.entities.enums.TipoAveria).values()}" th:value="${tipo}" th:text="${tipo}"></option>
+                    </select>
+                </div>-->
 
                 <div class="mb-3">
                     <label for="vehiculo" class="form-label">Vehiculo</label>

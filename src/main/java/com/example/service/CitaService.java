@@ -2,6 +2,7 @@ package com.example.service;
 
 
 import com.example.entities.*;
+import com.example.entities.enums.TipoAveria;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,6 +25,8 @@ public interface CitaService {
     void deleteById(Long id);
 
     List<Cita> findAllByAveria(Averia averia);
+
+    //List<Cita> findAllByTipoAveria(TipoAveria tipoAveria);
 
 
     Object findAllByTaller(Taller taller);

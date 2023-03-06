@@ -29,16 +29,16 @@
             <div class="card" th:if="${error} == null">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Cita Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${cita.cliente}"></h5>
+                    <h5 class="card-title" th:text="${cita.cliente.nombreCompleto}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|FechaHora: ${cita.fechaHora}|"></li>
 
-                    <li class="list-group-item" th:text="|Averia: ${cita.averia}|"></li>
+                    <li class="list-group-item" th:text="|Averia: ${cita.averia.tipo}|"></li>
 
-                    <li class="list-group-item" th:text="|Vehiculo: ${cita.vehiculo}|"></li>
+                    <li class="list-group-item" th:text="|Vehiculo: ${cita.vehiculo.matricula}|"></li>
 
-                    <li class="list-group-item" th:text="|Taller: ${cita.taller}|"></li>
+                    <li class="list-group-item" th:text="|Taller: ${cita.taller.nombre}|"></li>
 
 
 
