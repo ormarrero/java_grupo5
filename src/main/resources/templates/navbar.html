@@ -5,8 +5,8 @@
 
 <nav th:fragment="nav1" class="navbar navbar-expand-lg bg-light mb-5">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/foods">
-            <img class="img-fluid nav-logo" src="/img/bookstore.png" alt="Logo">
+        <a class="navbar-brand" href="/taller">
+        <img class="img-fluid nav-logo" src="/img/logo.png" height="150" width="200">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -18,7 +18,7 @@
 
             </ul>
 
-
+<!--
             <div class="d-flex" sec:authorize="isAnonymous()">
                 <a class="btn btn-link" th:href="@{/login}">Iniciar sesión</a>
             </div>
@@ -31,6 +31,7 @@
             <div class="d-flex" sec:authorize="isAuthenticated()">
                 <a class="btn btn-link" th:href="@{/logout}">Cerrar sesión</a>
             </div>
+            -->
         </div>
     </div>
 </nav>

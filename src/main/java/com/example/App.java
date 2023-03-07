@@ -22,12 +22,15 @@ public class App {
         // VEHICULO
         VehiculoRepository vehiculoRepo = context.getBean(VehiculoRepository.class);
 
-        Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla", TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELECTRICO, 2021);
-        Vehiculo vehiculo2 = new Vehiculo(null,  "M Competition", "BMW",TipoVehiculo.COCHE, "qwe456", Color.AZUL, Combustible.GASOLINA, 2020);
-        Vehiculo vehiculo3 = new Vehiculo(null,  "CB 125F", "HONDA",TipoVehiculo.MOTO, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2019);
-        Vehiculo vehiculo4 = new Vehiculo(null,  "S-Way", "Iveco",TipoVehiculo.CAMION, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2020);
-        Vehiculo vehiculo5 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2023);
-        vehiculoRepo.saveAll(List.of(vehiculo1,vehiculo2, vehiculo3, vehiculo4, vehiculo5));
+        Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla", TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELECTRICO, 2019);
+        Vehiculo vehiculo2 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2019);
+        Vehiculo vehiculo3 = new Vehiculo(null,  "Plaid AWD", "Tesla",TipoVehiculo.COCHE, "qwe456", Color.AZUL, Combustible.GASOLINA, 2020);
+        Vehiculo vehiculo4 = new Vehiculo(null,  "Model3", "Tesla",TipoVehiculo.CAMION, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2022);
+        Vehiculo vehiculo5 = new Vehiculo(null,  "Model3", "Tesla",TipoVehiculo.MOTO, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2021);
+        Vehiculo vehiculo6 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2020);
+        Vehiculo vehiculo7 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2021);
+        Vehiculo vehiculo8 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2022);
+        vehiculoRepo.saveAll(List.of(vehiculo1,vehiculo2, vehiculo3, vehiculo4, vehiculo5, vehiculo6, vehiculo7, vehiculo8));
 
 
 
