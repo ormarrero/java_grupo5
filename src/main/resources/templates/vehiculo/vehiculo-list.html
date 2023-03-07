@@ -9,14 +9,36 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-light mb-5">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">App</a>
+    <!-- 1. agregar el style color-->
+    <a class="navbar-brand" href="#"  style="color:#000080;  font-weight: bold;">App</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Vehiculos</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/averias" style="color:#000080;">Averías</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/citas" style="color:#000080;">Citas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/clientes" style="color:#000080;">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/addresses" style="color:#000080;">Direcciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/facturas" style="color:#000080;">Facturas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/mecanicos" style="color:#000080;">Mecánicos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/talleres" style="color:#000080;">Talleres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:8080/vehiculos" style="color:#000080;">Vehículos</a>
         </li>
 
       </ul>
@@ -28,35 +50,14 @@
   </div>
 </nav>
 
-<!-- MODIFICADO AQUI -->
+<!-- 2. cambiar a text-center -->
 <div class="container text-center">
   <div class="row">
-    <h1>Listado de Vehículos</h1>
-
-    <!-- MODIFICADO AQUI TAMBIEN-->
-  </div>
-  <div class="mt-2">
-    <span>Filtrar por Modelo: </span>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/modelo/BZ4X}">BZ4X</a>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/modelo/BZ4X}">Plaid AWD</a>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/modelo/Model3}">Model 3</a>
-
-  </div>
-  <div class="mt-2">
-    <span>Filtrar por Marca: </span>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/marca/Toyota}">Toyota</a>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/marca/Tesla}">Tesla</a>
-  </div>
-  <div class="mt-2">
-    <span>Filtrar por Año: </span>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2019}">2019</a>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2020}">2020</a>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2021}">2021</a>
-    <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2022}">2022</a>
-  </div>
+    <!-- 1. agregar el style color-->
+    <h1  style="color:#000080;">Listado de Vehículos</h1>
 
     <div class="col mt-3">
-      <a class="btn btn-success" th:href="@{/vehiculos/create}">Crear nuevo vehiculo</a>
+      <a class="btn btn-outline-dark" th:href="@{/vehiculos/create}">Crear Nuevo Vehículo</a>
 
       <table class="table">
         <thead>
@@ -90,6 +91,30 @@
         </tr>
         </tbody>
       </table>
+
+      <!-- 4. style y filtros-->
+      <div class="container2 text-left" style="color:#000080;  font-weight: bold;">
+        <div class="mt-2">
+          <span>Filtrar por Modelo: </span>
+          <a class="btn btn-outline-secondary" color-text="red" th:href="@{/vehiculos/modelo/BZ4X}">BZ4X</a>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/modelo/PlaidAWD}">Plaid AWD</a>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/modelo/Model3}">Model 3</a>
+        </div>
+        <div class="mt-2">
+          <span>Filtrar por Año: </span>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2019}">2019</a>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2020}">2020</a>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2021}">2021</a>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/year/2022}">2022</a>
+        </div>
+        <div class="mt-2">
+          <span>Filtrar por Marca: </span>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/marca/Toyota}">Toyota</a>
+          <a class="btn btn-outline-secondary" th:href="@{/vehiculos/marca/Tesla}">Tesla</a>
+        </div>
+
+
+      </div>
     </div>
 
   </div>

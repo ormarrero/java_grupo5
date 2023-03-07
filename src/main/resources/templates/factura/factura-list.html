@@ -50,9 +50,9 @@
                 <tr th:each="factura: ${facturas}">
                     <td th:text="${factura.id}"></td>
                     <td th:text="${factura.monto}"></td>
-                    <td th:text="${factura.cliente}"></td>
-                    <td th:text="${factura.taller}"></td>
-                    <td th:text="${factura.averia}"></td>
+                    <td th:text="${factura.cliente.nombreCompleto}"></td>
+                    <td th:text="${factura.taller.nombre}"></td>
+                    <td th:text="${factura.averia.tipo}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{/facturas/{id}(id=${factura.id})}">Ver</a>
                         <a class="btn btn-success" th:href="@{/facturas/{id}/edit(id=${factura.id})}">Editar</a>

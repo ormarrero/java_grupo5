@@ -49,7 +49,7 @@
                 <tr th:each="taller: ${talleres}">
                     <td th:text="${taller.id}"></td>
                     <td th:text="${taller.nombre}"></td>
-                    <td th:text="${taller.address}"></td>
+                    <td th:text="${taller.address.calle}"></td>
                     <td th:text="${taller.telefono}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{/talleres/{id}(id=${taller.id})}">Ver</a>

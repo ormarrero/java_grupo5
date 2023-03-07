@@ -14,6 +14,9 @@ public interface FacturaService {
 		List<Factura> findAll();
 		Optional<Factura> findById(Long id);
 		List<Factura> findAllByMonto(Double monto);
+		List<Factura> findAllByCliente(Cliente cliente);
+		List<Factura> findAllByTaller(Taller taller);
+		List<Factura> findAllByAveria(Averia averia);
 		Factura save(Factura factura);
 		void deleteById(Long id);
 	}

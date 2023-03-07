@@ -39,7 +39,7 @@
         <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Fullname</th>
+          <th scope="col">Nombre Completo</th>
           <th scope="col">Telefono</th>
           <th scope="col">Taller</th>
           <th scope="col">Actions</th>
@@ -50,7 +50,7 @@
           <td th:text="${mecanico.id}"></td>
           <td th:text="${mecanico.fullname}"></td>
           <td th:text="${mecanico.telefono}"></td>
-          <td th:text="${mecanico.taller}"></td>
+          <td th:text="${mecanico.taller.nombre}"></td>
           <td>
             <a class="btn btn-primary" th:href="@{/mecanicos/{id}(id=${mecanico.id})}">Ver</a>
             <a class="btn btn-success" th:href="@{/mecanicos/{id}/edit(id=${mecanico.id})}">Editar</a>

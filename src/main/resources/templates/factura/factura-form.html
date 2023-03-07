@@ -37,18 +37,36 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" id="cliente" th:field="*{cliente}" >
+                    <label>Elige el Cliente:</label>
+                    <select aria-label="Clientes"
+                            class="form-select"
+                            th:field="*{cliente}">
+                        <option th:each="cliente : ${clientes}"
+                                th:value="${cliente.id}"
+                                th:text="|${cliente.nombreCompleto}, ${cliente.nif}|"></option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="taller" class="form-label">Taller</label>
-                    <input type="text" class="form-control" id="taller" th:field="*{taller}">
+                    <label>Elige un Taller:</label>
+                    <select aria-label="Talleres"
+                            class="form-select"
+                            th:field="*{taller}">
+                        <option th:each="taller : ${talleres}"
+                                th:value="${taller.id}"
+                                th:text="|${taller.nombre}|"></option>
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="averia" class="form-label">Averia</label>
-                    <input type="text" class="form-control" id="averia" th:field="*{averia}">
+                    <label>Elige una Avería:</label>
+                    <select aria-label="Averias"
+                            class="form-select"
+                            th:field="*{averia}">
+                        <option th:each="averia : ${averias}"
+                                th:value="${averia.id}"
+                                th:text="|${averia.tipo}|"></option>
+                    </select>
                 </div>
 
 

@@ -1,7 +1,10 @@
 package com.example.controllers;
 
+import com.example.entities.Averia;
+import com.example.entities.Cliente;
 import com.example.entities.Factura;
 
+import com.example.entities.Taller;
 import com.example.service.FacturaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -42,7 +45,24 @@ public class FacturaController {
 		model.addAttribute("facturas", facturaService.findAllByMonto(monto));
 		return "factura/factura-list";
 	}
-	
+
+	@GetMapping("facturas/cliente/{cliente}")
+	public String findByCliente(Model model, @PathVariable Cliente cliente){
+		model.addAttribute("facturas", facturaService.findAllByCliente(cliente));
+		return "factura/factura-list";
+	}
+
+	@GetMapping("facturas/taller/{taller}")
+	public String findByTaller(Model model, @PathVariable Taller taller){
+		model.addAttribute("facturas", facturaService.findAllByTaller(taller));
+		return "factura/factura-list";
+	}
+	@GetMapping("facturas/averia/{averia}")
+	public String findByAveria(Model model, @PathVariable Averia averia){
+		model.addAttribute("facturas", facturaService.findAllByAveria(averia));
+		return "factura/factura-list";
+	}
+
 	@GetMapping("facturas/create")
 	public String createForm(Model model) {
 		Factura factura = new Factura();

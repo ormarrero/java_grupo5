@@ -1,8 +1,10 @@
 package com.example.service.implementations;
 
 
+import com.example.entities.Averia;
 import com.example.entities.Cliente;
 import com.example.entities.Factura;
+import com.example.entities.Taller;
 import com.example.repositories.FacturaRepository;
 import com.example.service.FacturaService;
 import lombok.AllArgsConstructor;
@@ -26,8 +28,23 @@ public class FacturaServiceImpl implements FacturaService {
 	
 	@Override
 	public List<Factura> findAllByMonto(Double monto) { return facturaRepository.findAllByMonto(monto);}
-		
-	
+
+	@Override
+	public List<Factura> findAllByCliente(Cliente cliente) {
+		return facturaRepository.findAllByCliente(cliente);
+	}
+
+	@Override
+	public List<Factura> findAllByTaller(Taller taller) {
+		return facturaRepository.findAllByTaller(taller);
+	}
+
+	@Override
+	public List<Factura> findAllByAveria(Averia averia) {
+		return facturaRepository.findAllByAveria(averia);
+	}
+
+
 	@Override
 		public Factura save(Factura factura){return facturaRepository.save(factura);}
 		

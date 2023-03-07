@@ -13,8 +13,8 @@
 <div class="container text-center">
   <div class="row">
 
-    <h1 th:if="${vehiculo.id}" class="h1-title">Modificar Vehiculo<span th:text="${vehiculo.id}"></span></h1>
-    <h1 th:if="${vehiculo.id} == null" class="h1-title">Crear nuevo Vehículo</h1>
+    <h1 th:if="${vehiculo.id}" class="h1-title" style="color:#000080;">Modificar Vehiculo<span th:text="${vehiculo.id}"></span></h1>
+    <h1 th:if="${vehiculo.id} == null" class="h1-title" style="color:#000080;">Crear nuevo Vehículo</h1>
 
     <div class="col"></div>
 
@@ -32,43 +32,43 @@
         <input type="hidden" id="id" name="id" th:field="*{id}" />
 
         <div class="mb-3">
-          <label for="modelo" class="form-label">Modelo</label>
+          <label for="modelo" class="form-label" style="color:#000080;">Introduzca el Modelo</label>
           <input type="text" class="form-control" id="modelo" th:field="*{modelo}" >
         </div>
 
         <div class="mb-3">
-          <label for="marca" class="form-label">Marca</label>
+          <label for="marca" class="form-label" style="color:#000080;">Introduzca la Marca</label>
           <input type="text" class="form-control" id="marca" th:field="*{marca}">
         </div>
 
         <div class="mb-3">
-          <label>Elige un Tipo</label>
+          <label style="color:#000080;">Elija un Tipo</label>
           <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
             <option th:each="tipo: ${T(com.example.entities.enums.TipoVehiculo).values()}" th:value="${tipo}" th:text="${tipo}"></option>
           </select>
         </div>
 
         <div class="mb-3">
-          <label for="matricula" class="form-label">Matricula</label>
+          <label for="matricula" class="form-label" style="color:#000080;">Introduzca la Matrícula</label>
           <input type="text" class="form-control" id="matricula" th:field="*{matricula}" >
         </div>
 
         <div class="mb-3">
-          <label>Elige un Color</label>
+          <label style="color:#000080;">Elija un Color</label>
           <select aria-label="Color" class="form-select" th:field="*{color}">
             <option th:each="color: ${T(com.example.entities.enums.Color).values()}" th:value="${color}" th:text="${color}"></option>
           </select>
         </div>
 
         <div class="mb-3">
-          <label>Elige un Combustible</label>
+          <label style="color:#000080;">Elija un Combustible</label>
           <select aria-label="Combustible" class="form-select" th:field="*{combustible}">
             <option th:each="combustible: ${T(com.example.entities.enums.Combustible).values()}" th:value="${combustible}" th:text="${combustible}"></option>
           </select>
         </div>
 
         <div class="mb-3">
-          <label for="year" class="form-label">Year</label>
+          <label for="year" class="form-label" style="color:#000080;">Introduzca el Año</label>
           <input type="number" class="form-control" id="year" th:field="*{year}">
         </div>
 
