@@ -13,8 +13,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${mecanico.id}" class="h1-title">Modificar Mecanico <span th:text="${mecanico.id}"></span></h1>
-        <h1 th:if="${mecanico.id} == null" class="h1-title">Crear nuevo Mecanico</h1>
+        <h1 th:if="${mecanico.id}" class="h1-title" style="color:#000080;">Modificar Mecanico <span th:text="${mecanico.id}"></span></h1>
+        <h1 th:if="${mecanico.id} == null" class="h1-title" style="color:#000080;">Crear nuevo Mecanico</h1>
 
         <div class="col"></div>
 
@@ -32,17 +32,17 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="fullname" class="form-label">Nombre Completo</label>
+                    <label for="fullname" class="form-label" style="color:#000080;">Nombre Completo</label>
                     <input type="text" class="form-control" id="fullname" th:field="*{fullname}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="telefono" class="form-label">Teléfono</label>
+                    <label for="telefono" class="form-label" style="color:#000080;">Teléfono</label>
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="taller" class="form-label">Taller</label>
+                    <label for="taller" class="form-label" style="color:#000080;">Taller</label>
                     <input type="text" class="form-control" id="taller" th:field="*{taller}" >
                 </div>
 
