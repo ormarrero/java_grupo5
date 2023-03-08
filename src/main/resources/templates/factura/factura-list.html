@@ -16,7 +16,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Facturas</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/averias" style="color:#000080;">Averías</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/citas" style="color:#000080;">Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/clientes" style="color:#000080;">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/addresses" style="color:#000080;">Direcciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/facturas" style="color:#000080;">Facturas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/mecanicos" style="color:#000080;">Mecánicos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/talleres" style="color:#000080;">Talleres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/vehiculos" style="color:#000080;">Vehículos</a>
                 </li>
 
             </ul>
@@ -33,7 +54,7 @@
         <h1 style="color:#000080;"> Listado de facturas </h1>
 
         <div class="col mt-3">
-            <a class="btn btn-success" th:href="@{/facturas/create}">Crear nueva factura</a>
+            <a class="btn btn-outline-dark" th:href="@{/facturas/create}">Crear nueva factura</a>
 
             <table class="table">
                 <thead>
@@ -61,6 +82,17 @@
                 </tr>
                 </tbody>
             </table>
+
+            <div class="container2 text-left" style="color:#000080;  font-weight: bold;">
+                <div class="mt-2">
+                    <span>Filtrar por Monto: </span>
+                    <a class="btn btn-outline-secondary" color-text="red" th:href="@{/facturas/monto/2600.5}">2600.5</a>
+                    <a class="btn btn-outline-secondary" th:href="@{/facturas/monto/2000.9}">2000.9</a>
+                    <a class="btn btn-outline-secondary" th:href="@{/facturas/monto/1000.0}">1000.0</a>
+                    <a class="btn btn-outline-secondary" th:href="@{/facturas/monto/750.8}">750.8</a>
+                    <a class="btn btn-outline-secondary" th:href="@{/facturas/monto/1500.9}">1500.9</a>
+                </div>
+            </div>
         </div>
 
     </div>
