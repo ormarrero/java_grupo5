@@ -32,7 +32,7 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label>Elige un Cliente:</label>
+                    <label style="color:#000080;">Elige un Cliente:</label>
                     <select aria-label="Clientes"
                             class="form-select"
                             th:field="*{cliente}">
@@ -43,12 +43,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="fechaHora" class="form-label">FechaHora Ej.DD/MM/AA, HH:MM</label>
+                    <label for="fechaHora" class="form-label" style="color:#000080;">FechaHora Ej.DD/MM/AA, HH:MM</label>
                     <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
                 </div>
 
                 <div class="mb-3">
-                    <label>Elige la hora de la avería:</label>
+                    <label style="color:#000080;">Elige la hora de la avería:</label>
                     <select aria-label="Averias"
                             class="form-select"
                             th:field="*{averia}">
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label>Elige un Vehículo:</label>
+                    <label style="color:#000080;">Elige un Vehículo:</label>
                     <select aria-label="Vehiculos"
                             class="form-select"
                             th:field="*{vehiculo}">
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label>Elige un Taller:</label>
+                    <label style="color:#000080;">Elige un Taller:</label>
                     <select aria-label="Talleres"
                             class="form-select"
                             th:field="*{taller}">
@@ -93,7 +93,108 @@
         <div class="col"></div>
     </div>
 </div>
-<div th:replace="~{footer :: footer1}"></div>
+
+<footer th:fragment="newfooter1" class="text-center text-lg-start bg-white text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+            <span>Conectate a través de nuestras redes sociales</span>
+        </div>
+
+        <div>
+            <a href="https//www.facebook.com" class="me-4 link-secondary">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https//www.twitter.com" class="me-4 link-secondary">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https//www.google.com" class="me-4 link-secondary">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="https//www.instagram.com" class="me-4 link-secondary">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https//www.linkedin.com" class="me-4 link-secondary">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https//www.github.com" class="me-4 link-secondary">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
+    </section>
+
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3 text-secondary"></i>Taller FundAdecco2023
+                    </h6>
+                    <p>
+                        En nuestros talleres ofrecemos maxima profesionalidad y soluciones para sus vehiculos
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Products
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Electronica</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Chapa y Pintura</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Roturas</a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Norauto</h6>
+                    <p><i class="fas fa-home me-3 text-secondary"></i> address3</p>
+                    <p>
+                        <i class="fas fa-envelope me-3 text-secondary"></i>
+                        info@example.com
+                    </p>
+                    <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 612345678</p>
+
+                </div>
+
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">El supercoche</h6>
+                    <p><i class="fas fa-home me-3 text-secondary"></i>address4</p>
+                    <p>
+                        <i class="fas fa-envelope me-3 text-secondary"></i>
+                        info@example.com
+                    </p>
+                    <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 687654321</p>
+
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="https://funadecco2023.com/">FundAdecco2023.com</a>
+    </div>
+</footer>
+
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/main.js}"></script>
 </body>
