@@ -13,8 +13,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${address.id}" class="h1-title">Modificar Address <span th:text="${address.id}"></span></h1>
-        <h1 th:if="${address.id} == null" class="h1-title">Crear nueva Address</h1>
+        <h1 th:if="${address.id}" class="h1-title" style="color:#000080;">Modificar Address <span th:text="${address.id}"></span></h1>
+        <h1 th:if="${address.id} == null" class="h1-title" style="color:#000080;">Crear nueva Address</h1>
 
         <div class="col"></div>
 
@@ -32,22 +32,22 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="calle" class="form-label">Calle</label>
+                    <label for="calle" class="form-label" style="color:#000080;" >Calle</label>
                     <input type="text" class="form-control" id="calle" th:field="*{calle}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="numero" class="form-label">Número</label>
+                    <label for="numero" class="form-label" style="color:#000080;" >Número</label>
                     <input type="number" class="form-control" id="numero" th:field="*{numero}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="ciudad" class="form-label">Ciudad</label>
+                    <label for="ciudad" class="form-label" style="color:#000080;" >Ciudad</label>
                     <input type="text" class="form-control" id="ciudad" th:field="*{ciudad}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="cp" class="form-label">Código postal</label>
+                    <label for="cp" class="form-label" style="color:#000080;" >Código postal</label>
                     <input type="number" class="form-control" id="cp" th:field="*{cp}">
                 </div>
 
