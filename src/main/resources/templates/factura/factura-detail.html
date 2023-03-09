@@ -32,11 +32,11 @@
                     <h5 class="card-title" th:text="|Monto: ${factura.monto}|" style="color:#000080;"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Cliente: ${factura.cliente}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Cliente: ${factura.cliente.nombreCompleto}|" style="color:#000080;"></li>
 
-                    <li class="list-group-item" th:text="|Taller: ${factura.taller}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Taller: ${factura.taller.nombre}|" style="color:#000080;"></li>
 
-                    <li class="list-group-item" th:text="|Averia: ${factura.averia}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Averia: ${factura.averia.tipo}|" style="color:#000080;"></li>
 
 
 
