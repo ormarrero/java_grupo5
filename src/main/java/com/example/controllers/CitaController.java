@@ -26,10 +26,10 @@ public class CitaController {
     private final VehiculoService vehiculoService;
     private final TallerService tallerService;
 
-    //  @GetMapping("/")
-    //  public String index() {
-    //      return "redirect:/talleres";
-    //  }
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/citas";
+    }
 
 
     @GetMapping("citas")

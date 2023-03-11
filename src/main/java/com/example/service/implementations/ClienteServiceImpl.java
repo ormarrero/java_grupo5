@@ -22,7 +22,7 @@ public class ClienteServiceImpl implements ClienteService {
     
     
     private final ClienteRepository clienteRepository;
-    
+
     @Override
     public List<Cliente> findAll() {
         return clienteRepository.findAll(); }
@@ -72,6 +72,22 @@ public class ClienteServiceImpl implements ClienteService {
     }
     
     @Override
-    public void deleteById(Long id) {clienteRepository.deleteById(id); }
+    public void deleteById(Long id) {
+
+        // desasociar facturas y todo lo q apunte al cliente
+        // find all by cliente id
+        // a cada factura le pongo null sus clientes
+        // guardar facturas
+
+        /*
+        List<Employee> employees = employeeService.findAllByCompanyId(id);
+        for (Employee employee : employees) {
+        employee.setCompany(null);
+        }
+        employeeService.saveAll(employees);
+        */
+
+        clienteRepository.deleteById(id);
+    }
     
 }
