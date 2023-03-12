@@ -5,7 +5,10 @@ import com.example.entities.Cliente;
 import com.example.entities.Factura;
 
 import com.example.entities.Taller;
+import com.example.service.AveriaService;
+import com.example.service.ClienteService;
 import com.example.service.FacturaService;
+import com.example.service.TallerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +24,11 @@ import java.util.Optional;
 @Controller
 public class FacturaController {
 	private final FacturaService facturaService;
-	
-	@GetMapping("facturas") // GET http://localhost:8080/averias
+	private final ClienteService clienteService;
+	private final TallerService tallerService;
+	private final AveriaService averiaService;
+
+	@GetMapping("facturas") // GET http://localhost:8080/facturas
 	public String findAll(Model model) {
 		List<Factura> facturas = facturaService.findAll();
 		model.addAttribute("facturas", facturas);
@@ -33,7 +39,12 @@ public class FacturaController {
 	public String findById(Model model, @PathVariable Long id) {
 		Optional<Factura> facturaOptional = facturaService.findById(id);
 		if (facturaOptional.isPresent())
+		{
 			model.addAttribute("factura", facturaOptional.get());
+			model.addAttribute("clientes", facturaOptional.get().getCliente());
+			model.addAttribute("talleres", facturaOptional.get().getTaller());
+			model.addAttribute("averias", facturaOptional.get().getAveria());
+		}
 		else
 			model.addAttribute("error", "Factura not found");
 		
@@ -67,6 +78,10 @@ public class FacturaController {
 	public String createForm(Model model) {
 		Factura factura = new Factura();
 		model.addAttribute("factura", factura);
+		model.addAttribute("clientes", clienteService.findAll());
+		model.addAttribute("talleres", tallerService.findAll());
+		model.addAttribute("averias", averiaService.findAll());
+
 		return "factura/factura-form";
 	}
 	
@@ -75,6 +90,15 @@ public class FacturaController {
 		Optional<Factura> facturaOptional = facturaService.findById(id);
 		if (facturaOptional.isPresent()) {
 			model.addAttribute("factura", facturaOptional.get());
+
+			model.addAttribute("cliente", facturaOptional.get().getCliente());
+			model.addAttribute("taller", facturaOptional.get().getTaller());
+			model.addAttribute("averia", facturaOptional.get().getAveria());
+
+			model.addAttribute("clientes", clienteService.findAll());
+			model.addAttribute("talleres", tallerService.findAll());
+			model.addAttribute("averias", averiaService.findAll());
+
 		} else {
 			model.addAttribute("error", "Factura not found");
 		}

@@ -65,7 +65,7 @@
                             th:field="*{averia}">
                         <option th:each="averia : ${averias}"
                                 th:value="${averia.id}"
-                                th:text="|${averia.tipo}|"></option>
+                                th:text="|${averia.tipo}, ${averia.grado}|"></option>
                     </select>
                 </div>
 

@@ -63,7 +63,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Calle</th>
-                    <th scope="col">Telefono</th>
+                    <th scope="col">Teléfono</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -71,7 +71,7 @@
                 <tr th:each="taller: ${talleres}">
                     <td th:text="${taller.id}"></td>
                     <td th:text="${taller.nombre}"></td>
-                    <td th:text="${taller.address.calle}"></td>
+                    <td th:text="|${taller.address.calle}, ${taller.address.ciudad}|"></td>
                     <td th:text="${taller.telefono}"></td>
                     <td>
                         <a class="btn btn-primary" th:href="@{/talleres/{id}(id=${taller.id})}">Ver</a>

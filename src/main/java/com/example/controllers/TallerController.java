@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.entities.Taller;
+import com.example.service.AddressService;
 import com.example.service.TallerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class TallerController {
 
     private final TallerService tallerService;
+    private final AddressService addressService;
 
   //  @GetMapping("/")
   //  public String index() {
@@ -37,7 +39,10 @@ public class TallerController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Taller> tallerOptional = tallerService.findById(id);
         if (tallerOptional.isPresent())
+        {
             model.addAttribute("taller", tallerOptional.get());
+            model.addAttribute("addresses", tallerOptional.get().getAddress());
+        }
         else
             model.addAttribute("error", "Taller not found");
 
@@ -71,6 +76,7 @@ public class TallerController {
     public String createForm(Model model) {
         Taller taller = new Taller();
         model.addAttribute("taller", taller);
+        model.addAttribute("addresses", addressService.findAll());
         return "taller/taller-form";
 
     }
@@ -80,6 +86,8 @@ public class TallerController {
         Optional<Taller> tallerOptional = tallerService.findById(id);
         if (tallerOptional.isPresent()) {
             model.addAttribute("taller", tallerOptional.get());
+            model.addAttribute("address", tallerOptional.get().getAddress());
+            model.addAttribute("addresses", addressService.findAll());
         }
         else {
             model.addAttribute("error", "Taller not found");

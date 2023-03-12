@@ -37,8 +37,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="address" class="form-label" style="color:#000080;">Calle</label>
-                    <input type="text" class="form-control" id="address" th:field="*{address.calle}" >
+                    <label style="color:#000080;">Elige una Calle:</label>
+                    <select aria-label="Addresses"
+                            class="form-select"
+                            th:field="*{address}">
+                        <option th:each="address : ${addresses}"
+                                th:value="${address.id}"
+                                th:text="|${address.calle}, ${address.ciudad}|"></option>
+                    </select>
                 </div>
 
                 <div class="mb-3">

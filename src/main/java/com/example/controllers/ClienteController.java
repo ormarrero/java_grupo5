@@ -27,7 +27,7 @@ public class ClienteController {
 
     //  @GetMapping("/")
     //  public String index() {
-    //      return "redirect:/talleres";
+    //      return "redirect:/clientes";
     //  }
 
 
