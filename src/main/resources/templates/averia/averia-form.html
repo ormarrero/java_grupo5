@@ -13,8 +13,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${averia.id}" class="h1-title">Modificar Avería <span th:text="${averia.id}"></span></h1>
-        <h1 th:if="${averia.id} == null" class="h1-title">Crear nueva Avería</h1>
+        <h1 th:if="${averia.id}" class="h1-title" style="color:#000080;">Modificar Avería <span th:text="${averia.id}"></span></h1>
+        <h1 th:if="${averia.id} == null" class="h1-title" style="color:#000080;">Crear nueva Avería</h1>
 
         <div class="col"></div>
 
@@ -32,25 +32,25 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label>Elige un tipo:</label>
+                    <label style="color:#000080;" >Elige un tipo:</label>
                     <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
                         <option th:each="tipo: ${T(com.example.entities.enums.TipoAveria).values()}" th:value="${tipo}" th:text="${tipo}"></option>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label>Elige un grado:</label>
+                    <label style="color:#000080;" >Elige un grado:</label>
                     <select aria-label="Grado" class="form-select" th:field="*{grado}">
                         <option th:each="grado: ${T(com.example.entities.enums.Grado).values()}" th:value="${grado}" th:text="${grado}"></option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="fechaHora" class="form-label">Fecha y hora. Ej. DD/MM/AA, HH:MM</label>
+                    <label for="fechaHora" class="form-label" style="color:#000080;" >Fecha y hora. Ej. DD/MM/AA, HH:MM</label>
                     <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
                 </div>
 
                      <div class="mb-3">
-                         <label for="descripcion" class="form-label">Descripción</label>
+                         <label for="descripcion" class="form-label" style="color:#000080;" >Descripción</label>
                          <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
                      </div>
 

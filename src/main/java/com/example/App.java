@@ -4,6 +4,7 @@ import com.example.entities.*;
 
 import com.example.repositories.*;
 import com.example.entities.enums.Color;
+import com.example.config.SecurityConfig;
 import com.example.entities.enums.Combustible;
 import com.example.entities.enums.Grado;
 import com.example.entities.enums.TipoAveria;
@@ -11,6 +12,7 @@ import com.example.entities.enums.TipoVehiculo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -124,7 +126,17 @@ public class App {
 
         citaRepo.saveAll(List.of(cita1, cita2, cita3, cita4, cita5));
 
+        // USER
+        var userRepo = context.getBean(UserEntityRepository.class);
+        var passwordEncoder = context.getBean(PasswordEncoder.class);
 
+        UserEntity user1 = new UserEntity(null, "Jose Ignacio", "joigarja@gmail.com", passwordEncoder.encode("admin"));
+        UserEntity user2 = new UserEntity(null, "Javier", "elboop86@gmail.com", passwordEncoder.encode("admin"));
+        UserEntity user3 = new UserEntity(null, "Roberto", "robertron561@gmail.com ", passwordEncoder.encode("admin"));
+        UserEntity user4 = new UserEntity(null, "Oscar", "user3@foodapp.com", passwordEncoder.encode("admin"));
+        UserEntity user5 = new UserEntity(null, "Cristina", "user5@foodapp.com", passwordEncoder.encode("admin"));
+
+        userRepo.saveAll(List.of(user1, user2, user3, user4, user5));
 
     }
 }

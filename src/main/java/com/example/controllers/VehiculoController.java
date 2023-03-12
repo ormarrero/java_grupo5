@@ -18,6 +18,11 @@ import java.util.Optional;
 public class VehiculoController {
     private final VehiculoService vehiculoService;
 
+    /*@GetMapping("/")
+    public String index() {
+        return "redirect:/vehiculos";
+    }*/
+
     @GetMapping("vehiculos") // GET http://localhost:8080/vehiculos
     public String findAll(Model model) {
         List<Vehiculo> vehiculos = vehiculoService.findAll();

@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
+<div th:replace="~{navbar :: nav1}"></div>
 <nav class="navbar navbar-expand-lg bg-light mb-5">
     <div class="container-fluid">
 
@@ -62,7 +63,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Cliente</th>
-                    <th scope="col">FechaHora</th>
+                    <th scope="col">Fecha y Hora</th>
                     <th scope="col">Avería</th>
                     <th scope="col">Vehículo</th>
                     <th scope="col">Taller</th>
@@ -191,7 +192,7 @@
 </footer>
 
 
-<div th:replace="~{footer :: footer1}"></div>
+
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
