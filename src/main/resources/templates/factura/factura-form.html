@@ -8,8 +8,9 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
-<div th:replace="~{navbar :: nav1}"></div>
-
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
+    <div th:replace="~{navbar :: nav1}"></div>
+</div>
 <div class="container text-center">
     <div class="row">
 
@@ -69,9 +70,11 @@
                     </select>
                 </div>
 
-
-                <a class="btn btn-danger" th:href="@{/facturas}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                <a class="" th:href="@{/facturas}">
+                    <img src="/img/cancelar.png"></a>
+                <button type="submit" class="">
+                    <img src="/img/guardar.png"></button>
 
             </form>
 

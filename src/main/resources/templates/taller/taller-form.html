@@ -8,13 +8,14 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
     <div class="row">
 
         <h1 th:if="${taller.id}" class="h1-title" style="color:#000080;">Modificar Taller <span th:text="${taller.id}"></span></h1>
-        <h1 th:if="${taller.id} == null" class="h1-title" style="color:#000080;">Crear nuevo Taller</h1>
+        <h1 th:if="${taller.id} == null" class="h1-title" style="color:#000080;">Crear Nuevo Taller</h1>
 
         <div class="col"></div>
 
@@ -32,24 +33,26 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="nombre" class="form-label" style="color:#000080;">Nombre</label>
+                    <label for="nombre" class="form-label" style="color:#000080;">Introduzca el Nombre</label>
                     <input type="text" class="form-control" id="nombre" th:field="*{nombre}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="address" class="form-label" style="color:#000080;">Calle</label>
+                    <label for="address" class="form-label" style="color:#000080;">Introduzca la Calle</label>
                     <input type="text" class="form-control" id="address" th:field="*{address.calle}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="telefono" class="form-label" style="color:#000080;">Teléfono</label>
+                    <label for="telefono" class="form-label" style="color:#000080;">Introduzca el Teléfono</label>
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
 
 
-
-                <a class="btn btn-danger" th:href="@{/talleres}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                <a class="" th:href="@{/talleres}">
+                    <img src="/img/cancelar.png"></a>
+                <button type="submit" class="">
+                    <img src="/img/guardar.png"></button>
 
             </form>
 

@@ -8,8 +8,9 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
     <div class="row">
 
@@ -32,12 +33,12 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="nombreCompleto" class="form-label" style="color:#000080;">NombreCompleto</label>
+                    <label for="nombreCompleto" class="form-label" style="color:#000080;">Introduzca el NombreCompleto</label>
                     <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}" >
                 </div>
 
                 <div class="mb-3">
-                    <label  class="form-label" style="color:#000080;">Elige una Address:</label>
+                    <label  class="form-label" style="color:#000080;">Elige una Dirección:</label>
                     <select aria-label="Addresses"
                             class="form-select"
                             th:field="*{address}">
@@ -50,17 +51,17 @@
 
 
                 <div class="mb-3">
-                    <label for="email" class="form-label" style="color:#000080;">Email</label>
+                    <label for="email" class="form-label" style="color:#000080;">Introduzca el Email</label>
                     <input type="text" class="form-control" id="email" th:field="*{email}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="nif" class="form-label" style="color:#000080;">Nif</label>
+                    <label for="nif" class="form-label" style="color:#000080;">Introduzca elNif</label>
                     <input type="text" class="form-control" id="nif" th:field="*{nif}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="telefono" class="form-label" style="color:#000080;">Telefono</label>
+                    <label for="telefono" class="form-label" style="color:#000080;">Introduzca el Telefono</label>
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
 
@@ -76,9 +77,11 @@
                 </div>
 
 
-
-                <a class="btn btn-danger" th:href="@{/clientes}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                <a class="" th:href="@{/clientes}">
+                    <img src="/img/cancelar.png"></a>
+                <button type="submit" class="">
+                    <img src="/img/guardar.png"></button>
 
             </form>
 

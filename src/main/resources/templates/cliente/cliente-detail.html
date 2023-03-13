@@ -8,12 +8,13 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;">  <!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
     <div class="row">
 
-        <h1 class="h1-title" style="color:#000080;">Detalle de Cliente</h1>
+        <h1 class="h1-title" style="color:#000080;">Detalles de Cliente</h1>
         <div class="col"></div>
 
         <div class="col">
@@ -46,10 +47,14 @@
 
 
                 </ul>
+                <!--  BOTONES DE VER: VOLVER - EDITAR - BORRAR  -->
                 <div class="card-body">
-                    <a class="btn btn-primary" th:href="@{/clientes}">Volver</a>
-                    <a class="btn btn-success" th:href="@{/clientes/{id}/edit(id=${cliente.id})}">Editar</a>
-                    <a class="btn btn-danger" th:href="@{/clientes/{id}/delete(id=${cliente.id})}">Borrar</a>
+                    <a class="" th:href="@{/clientes}">
+                        <img src="/img/volver.png"></a>
+                    <a class="" th:href="@{/clientes/{id}/edit(id=${cliente.id})}">
+                        <img src="/img/editar2.png"></a>
+                    <a class="" th:href="@{/clientes/{id}/delete(id=${cliente.id})}">
+                        <img src="/img/borrar2.png"></a>
                 </div>
             </div>
         </div>

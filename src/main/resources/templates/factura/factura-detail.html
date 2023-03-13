@@ -8,8 +8,9 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;">  <!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div>
 <div class="container text-center">
     <div class="row">
 
@@ -42,10 +43,14 @@
 
 
                 </ul>
+                <!--  BOTONES DE VER: VOLVER - EDITAR - BORRAR  -->
                 <div class="card-body">
-                    <a class="btn btn-primary" th:href="@{/facturas}">Volver</a>
-                    <a class="btn btn-success" th:href="@{/facturas/{id}/edit(id=${factura.id})}">Editar</a>
-                    <a class="btn btn-danger" th:href="@{/facturas/{id}/delete(id=${factura.id})}">Borrar</a>
+                    <a class="" th:href="@{/facturas}">
+                        <img src="/img/volver.png"></a>
+                    <a class="" th:href="@{/facturas/{id}/edit(id=${factura.id})}">
+                        <img src="/img/editar2.png"></a>
+                    <a class="" th:href="@{/facturas/{id}/delete(id=${factura.id})}">
+                        <img src="/img/borrar2.png"></a>
                 </div>
             </div>
         </div>
