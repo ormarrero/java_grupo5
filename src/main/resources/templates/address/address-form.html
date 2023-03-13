@@ -8,13 +8,14 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${address.id}" class="h1-title" style="color:#000080;">Modificar Address <span th:text="${address.id}"></span></h1>
-        <h1 th:if="${address.id} == null" class="h1-title" style="color:#000080;">Crear nueva Address</h1>
+        <h1 th:if="${address.id}" class="h1-title" style="color:#000080;">Modificar Dirección <span th:text="${address.id}"></span></h1>
+        <h1 th:if="${address.id} == null" class="h1-title" style="color:#000080;">Crear Nueva Dirección</h1>
 
         <div class="col"></div>
 
@@ -32,27 +33,29 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="calle" class="form-label" style="color:#000080;" >Calle</label>
+                    <label for="calle" class="form-label" style="color:#000080;" >Introduzca la Calle</label>
                     <input type="text" class="form-control" id="calle" th:field="*{calle}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="numero" class="form-label" style="color:#000080;" >Número</label>
+                    <label for="numero" class="form-label" style="color:#000080;" >Introduzca el Número</label>
                     <input type="number" class="form-control" id="numero" th:field="*{numero}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="ciudad" class="form-label" style="color:#000080;" >Ciudad</label>
+                    <label for="ciudad" class="form-label" style="color:#000080;" >Introduzca la Ciudad</label>
                     <input type="text" class="form-control" id="ciudad" th:field="*{ciudad}" >
                 </div>
 
                 <div class="mb-3">
-                    <label for="cp" class="form-label" style="color:#000080;" >Código postal</label>
+                    <label for="cp" class="form-label" style="color:#000080;" >Introduzca el Código Postal</label>
                     <input type="number" class="form-control" id="cp" th:field="*{cp}">
                 </div>
-
-                <a class="btn btn-danger" th:href="@{/addresses}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                <a class="" th:href="@{/addresses}">
+                    <img src="/img/cancelar.png"></a>
+                <button type="submit" class="">
+                    <img src="/img/guardar.png"></button>
 
             </form>
 
