@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import com.example.entities.Mecanico;
 import com.example.service.MecanicoService;
+import com.example.service.TallerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ import java.util.Optional;
 public class MecanicoController {
 
     private final MecanicoService mecanicoService;
+
+    private final TallerService tallerService;
 
    // @GetMapping("/")
    // public String index() {
@@ -37,6 +40,7 @@ public class MecanicoController {
         Optional<Mecanico> mecanicoOptional = mecanicoService.findById(id);
         if (mecanicoOptional.isPresent())
             model.addAttribute("mecanico", mecanicoOptional.get());
+        model.addAttribute("talleres", mecanicoOptional.get().getTaller());
         else
             model.addAttribute("error", "Mecanico not found");
 
@@ -70,6 +74,7 @@ public class MecanicoController {
     public String createForm(Model model) {
         Mecanico mecanico = new Mecanico();
         model.addAttribute("mecanico", mecanico);
+        model.addAttribute("talleres", tallerService.findAll());
         return "mecanico/mecanico-form";
 
     }
@@ -79,6 +84,9 @@ public class MecanicoController {
         Optional<Mecanico> mecanicoOptional = mecanicoService.findById(id);
         if (mecanicoOptional.isPresent()) {
             model.addAttribute("mecanico", mecanicoOptional.get());
+
+            model.addAttribute("taller", mecanicoOptional.get().getTaller());
+            model.addAttribute("talleres", tallerService.findAll());
         }
         else {
             model.addAttribute("error", "Mecanico not found");
