@@ -43,8 +43,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="taller" class="form-label" style="color:#000080;">Elija el Taller</label>
-                    <input type="text" class="form-control" id="taller" th:field="*{taller}" >
+                    <label style="color:#000080;">Elige un Taller:</label>
+                    <select aria-label="Talleres"
+                            class="form-select"
+                            th:field="*{taller}">
+                        <option th:each="taller : ${talleres}"
+                                th:value="${taller.id}"
+                                th:text="|${taller.nombre}|"></option>
+                    </select>
                 </div>
                 <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
                 <a class="" th:href="@{/mecanicos}">
