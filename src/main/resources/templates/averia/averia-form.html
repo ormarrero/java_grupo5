@@ -8,13 +8,14 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
     <div class="row">
 
         <h1 th:if="${averia.id}" class="h1-title" style="color:#000080;">Modificar Avería <span th:text="${averia.id}"></span></h1>
-        <h1 th:if="${averia.id} == null" class="h1-title" style="color:#000080;">Crear nueva Avería</h1>
+        <h1 th:if="${averia.id} == null" class="h1-title" style="color:#000080;">Crear Nueva Avería</h1>
 
         <div class="col"></div>
 
@@ -32,20 +33,20 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label style="color:#000080;" >Elige un tipo:</label>
+                    <label style="color:#000080;" >Elige un Tipo:</label>
                     <select aria-label="Tipo" class="form-select" th:field="*{tipo}">
                         <option th:each="tipo: ${T(com.example.entities.enums.TipoAveria).values()}" th:value="${tipo}" th:text="${tipo}"></option>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label style="color:#000080;" >Elige un grado:</label>
+                    <label style="color:#000080;" >Elige un Grado:</label>
                     <select aria-label="Grado" class="form-select" th:field="*{grado}">
                         <option th:each="grado: ${T(com.example.entities.enums.Grado).values()}" th:value="${grado}" th:text="${grado}"></option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="fechaHora" class="form-label" style="color:#000080;" >Fecha y hora. Ej. DD/MM/AA, HH:MM</label>
+                    <label for="fechaHora" class="form-label" style="color:#000080;" >Intrduzca la Fecha y hora. Ej. DD/MM/AA, HH:MM</label>
                     <input type="datetime" class="form-control" id="fechaHora" th:field="*{fechaHora}" >
                 </div>
 
@@ -53,9 +54,11 @@
                          <label for="descripcion" class="form-label" style="color:#000080;" >Descripción</label>
                          <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
                      </div>
-
-                     <a class="btn btn-danger" th:href="@{/averias}">Cancelar</a>
-                     <button type="submit" class="btn btn-success">Guardar</button>
+                <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                     <a class="" th:href="@{/averias}">
+                         <img src="/img/cancelar.png"></a>
+                     <button type="submit" class="">
+                         <img src="/img/guardar.png"></button>
 
                  </form>
 

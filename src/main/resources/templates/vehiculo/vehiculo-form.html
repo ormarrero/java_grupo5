@@ -8,13 +8,14 @@
   <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
 <div th:replace="~{navbar :: nav1}"></div>
-
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
   <div class="row">
 
-    <h1 th:if="${vehiculo.id}" class="h1-title" style="color:#000080;">Modificar Vehiculo<span th:text="${vehiculo.id}"></span></h1>
-    <h1 th:if="${vehiculo.id} == null" class="h1-title" style="color:#000080;">Crear nuevo Vehículo</h1>
+    <h1 th:if="${vehiculo.id}" class="h1-title" style="color:#000080;">Modificar Vehículo <span th:text="${vehiculo.id}"></span></h1>
+    <h1 th:if="${vehiculo.id} == null" class="h1-title" style="color:#000080;">Crear Nuevo Vehículo</h1>
 
     <div class="col"></div>
 
@@ -71,9 +72,11 @@
           <label for="year" class="form-label" style="color:#000080;">Introduzca el Año</label>
           <input type="number" class="form-control" id="year" th:field="*{year}">
         </div>
-
-        <a class="btn btn-danger" th:href="@{/vehiculos}">Cancelar</a>
-        <button type="submit" class="btn btn-success">Guardar</button>
+<!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+        <a class="" th:href="@{/vehiculos}">
+        <img src="/img/cancelar.png"></a>
+        <button type="submit" class="btn btn-light">
+        <img src="/img/guardar.png"></button>
 
       </form>
 

@@ -8,8 +8,9 @@
   <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
-<div th:replace="~{navbar :: nav1}"></div>
-
+<div style="margin-left:300px;">  <!-- CAMBIO 1 -->
+  <div th:replace="~{navbar :: nav1}"></div>
+</div><!-- CAMBIO 1 -->
 <div class="container text-center">
   <div class="row">
 
@@ -27,7 +28,7 @@
 
 
       <div class="card" th:if="${error} == null">
-        <img src="https://dummyimage.com/300" class="card-img-top" alt="Vehiculo Image">
+        <img src="/img/vehiculo.jpg" class="card-img-top" alt="Vehiculo Image">
         <div class="card-body">
           <h5 class="card-title" th:text="|Modelo: ${vehiculo.modelo}|" style="color:#000080;"></h5>
         </div>
@@ -45,10 +46,14 @@
           <li class="list-group-item" th:text="|Año: ${vehiculo.year}|" style="color:#000080;"></li>
 
         </ul>
+        <!--  BOTONES DE VER: VOLVER - EDITAR - BORRAR  -->
         <div class="card-body">
-          <a class="btn btn-primary" th:href="@{/vehiculos}">Volver</a>
-          <a class="btn btn-success" th:href="@{/vehiculos/{id}/edit(id=${vehiculo.id})}">Editar</a>
-          <a class="btn btn-danger" th:href="@{/vehiculos/{id}/delete(id=${vehiculo.id})}">Borrar</a>
+          <a class="" th:href="@{/vehiculos}">
+            <img src="/img/volver.png"></a>
+          <a class="" th:href="@{/vehiculos/{id}/edit(id=${vehiculo.id})}">
+            <img src="/img/editar2.png"></a>
+          <a class="" th:href="@{/vehiculos/{id}/delete(id=${vehiculo.id})}">
+            <img src="/img/borrar2.png"></a>
         </div>
       </div>
     </div>

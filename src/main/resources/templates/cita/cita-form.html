@@ -8,13 +8,14 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
 </head>
 <body>
-<div th:replace="~{navbar :: nav1}"></div>
-
+<div style="margin-left:300px;"><!-- CAMBIO 1 -->
+    <div th:replace="~{navbar :: nav1}"></div>
+</div>
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${cita.id}" class="h1-title">Modificar Cita <span th:text="${cita.id}"></span></h1>
-        <h1 th:if="${cita.id} == null" class="h1-title">Crear nueva Cita</h1>
+        <h1 th:if="${cita.id}" class="h1-title" style="color:#000080;">Modificar Cita <span th:text="${cita.id}"></span></h1>
+        <h1 th:if="${cita.id} == null" class="h1-title" style="color:#000080;">Crear nueva Cita</h1>
 
         <div class="col"></div>
 
@@ -81,9 +82,11 @@
                 </div>
 
 
-
-                <a class="btn btn-danger" th:href="@{/citas}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+<!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                <a class="" th:href="@{/citas}">
+                    <img src="/img/cancelar.png"></a>
+                <button type="submit" class="">
+                    <img src="/img/guardar.png"></button>
 
             </form>
 
