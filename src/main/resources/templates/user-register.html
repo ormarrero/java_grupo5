@@ -13,7 +13,7 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1>Registrar nuevo usuario</h1>
+        <h1>Registrar Nuevo Usuario</h1>
 
         <div class="col"></div>
 
@@ -30,37 +30,39 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
 
                 <div class="mb-3">
-                    <label for="nombreCompleto" class="form-label">Nombre Completo</label>
+                    <label for="nombreCompleto" class="form-label">Introduzca el Nombre Completo</label>
                     <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="address" class="form-label">Address</label>
+                    <label for="address" class="form-label">Introduzca la Dirección</label>
                     <input type="text" class="form-control" id="address" th:field="*{address}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label">Introduzca el Email</label>
                     <input type="text" class="form-control" id="email" th:field="*{email}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="nif" class="form-label">Nif</label>
+                    <label for="nif" class="form-label">Introduzca el Nif</label>
                     <input type="text" class="form-control" id="nif" th:field="*{nif}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="telefono" class="form-label">Telefono</label>
+                    <label for="telefono" class="form-label">Introduzca el Teléfono</label>
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="vehiculo" class="form-label">Vehiculo</label>
+                    <label for="vehiculo" class="form-label">Introduzca el Vehículo</label>
                     <input type="text" class="form-control" id="vehiculo" th:field="*{vehiculo}">
                 </div>
-
-                <a class="btn btn-danger" th:href="@{/foods}">Cancelar</a>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <!-- BOTONES CREAR Y EDITAR: CANCELAR - GUARDAR  -->
+                <a class="" th:href="@{/foods}">
+                    <img src="/img/cancelar.png"></a>
+                <button type="submit" class="">
+                    <img src="/img/guardar.png"></button>
 
             </form>
 
