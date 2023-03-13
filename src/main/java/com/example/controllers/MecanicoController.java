@@ -39,8 +39,10 @@ public class MecanicoController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Mecanico> mecanicoOptional = mecanicoService.findById(id);
         if (mecanicoOptional.isPresent())
+        {
             model.addAttribute("mecanico", mecanicoOptional.get());
-        model.addAttribute("talleres", mecanicoOptional.get().getTaller());
+            model.addAttribute("talleres", mecanicoOptional.get().getTaller());
+        }
         else
             model.addAttribute("error", "Mecanico not found");
 
