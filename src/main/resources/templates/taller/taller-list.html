@@ -8,202 +8,216 @@
 </head>
 <body>
 <div style="margin-left:300px;"><!-- CAMBIO 1 -->
-<div th:replace="~{navbar :: nav1}"></div>
-    <div class="p-3 mb-2 bg-primary text-white" style="margin-left: 50px; width:700px; height:90px; text-align:center;"><!-- CAMBIO 2 -->
-<nav class="navbar navbar-expand-lg bg-light mb-5">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color:#000080; font-weight: bold;">App</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/averias" style="color:#000080;">Averías</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/citas" style="color:#000080;">Citas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/clientes" style="color:#000080;">Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/addresses" style="color:#000080;">Direcciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/facturas" style="color:#000080;">Facturas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/mecanicos" style="color:#000080;">Mecánicos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/talleres" style="color:#000080;">Talleres</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/vehiculos" style="color:#000080;">Vehículos</a>
-                </li>
+    <div th:replace="~{navbar :: nav1}"></div>
+    <div class="p-3 mb-2 bg-primary text-white" style="margin-left: 50px; width:700px; height:90px; text-align:center;">
+        <!-- CAMBIO 2 -->
+        <nav class="navbar navbar-expand-lg bg-light mb-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="color:#000080; font-weight: bold;">App</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/averias"
+                               style="color:#000080;">Averías</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/citas"
+                               style="color:#000080;">Citas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/clientes"
+                               style="color:#000080;">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/addresses"
+                               style="color:#000080;">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/facturas"
+                               style="color:#000080;">Facturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/mecanicos"
+                               style="color:#000080;">Mecánicos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/talleres"
+                               style="color:#000080;">Talleres</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="http://localhost:8080/vehiculos"
+                               style="color:#000080;">Vehículos</a>
+                        </li>
 
-            </ul><!--
+                    </ul><!--
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>-->
-        </div>
-    </div>
-</nav>
-
-<div class="container text-center">
-    <div class="row">
-        <h1 style="color:#000080;">Listado de Talleres</h1>
-
-        <div class="col mt-3">
-            <a class="btn btn-outline-dark" th:href="@{/talleres/create}">Crear nuevo taller</a>
-
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Calle</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="taller: ${talleres}">
-                    <td th:text="${taller.id}"></td>
-                    <td th:text="${taller.nombre}"></td>
-                    <td th:text="|${taller.address.calle}, ${taller.address.ciudad}|"></td>
-                    <td th:text="${taller.telefono}"></td>
-                    <td>
-                        <!-- BOTONES ACTIONS:  VER - EDITAR - BORRAR -->
-                        <a class="" th:href="@{/talleres/{id}(id=${taller.id})}">
-                            <img src="/img/ver.png"></a>
-                        <a class="" th:href="@{/talleres/{id}/edit(id=${taller.id})}">
-                            <img src="/img/editar.png"></a>
-                        <a class="" th:href="@{/talleres/{id}/delete(id=${taller.id})}">
-                            <img src="/img/borrar.png"></a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-            <div class="container2 text-left" style="color:#000080;  font-weight: bold;">
-                <div class="mt-2">
-                    <span>Filtrar por Nombre: </span>
-                    <a class="btn btn-outline-secondary" color-text="red" th:href="@{/talleres/nombre/Norauto}">Norauto</a>
-                    <a class="btn btn-outline-secondary" th:href="@{/talleres/nombre/El supercoche}">El supercoche</a>
                 </div>
+            </div>
+        </nav>
+
+        <div class="container text-center">
+            <div class="row">
+                <h1 style="color:#000080;">Listado de Talleres</h1>
+
+                <div class="col mt-3">
+                    <a class="btn btn-outline-dark" th:href="@{/talleres/create}">Crear nuevo taller</a>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Calle</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="taller: ${talleres}">
+                            <td th:text="${taller.id}"></td>
+                            <td th:text="${taller.nombre}"></td>
+                            <td th:text="|${taller.address.calle}, ${taller.address.ciudad}|"></td>
+                            <td th:text="${taller.telefono}"></td>
+                            <td>
+                                <!-- BOTONES ACTIONS:  VER - EDITAR - BORRAR -->
+                                <a class="" th:href="@{/talleres/{id}(id=${taller.id})}">
+                                    <img src="/img/ver.png"></a>
+                                <a class="" th:href="@{/talleres/{id}/edit(id=${taller.id})}">
+                                    <img src="/img/editar.png"></a>
+                                <a class="" th:href="@{/talleres/{id}/delete(id=${taller.id})}">
+                                    <img src="/img/borrar.png"></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="container2 text-left" style="color:#000080;  font-weight: bold;">
+                        <div class="mt-2">
+                            <span>Filtrar por Nombre: </span>
+                            <a class="btn btn-outline-secondary" color-text="red" th:href="@{/talleres/nombre/Norauto}">Norauto</a>
+                            <a class="btn btn-outline-secondary" th:href="@{/talleres/nombre/El supercoche}">El
+                                supercoche</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
-        </div>
+        <footer th:fragment="footer1" class="text-center text-lg-start bg-white text-muted">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                <!-- Left -->
+                <div class="me-5 d-none d-lg-block">
+                    <span>Conectate a través de nuestras redes sociales</span>
+                </div>
 
+                <div>
+                    <a href="https//www.facebook.com" class="me-4 link-secondary">
+                        <img src="/img/fa-facebook.png" width="32" height="32">
+                    </a>
+                    <a href="https//www.twitter.com" class="me-4 link-secondary">
+                        <img src="/img/fa-twitter.png" width="40" height="32">
+                    </a>
+                    <a href="https//www.google.com" class="me-4 link-secondary">
+                        <img src="/img/fa-google.png" width="32" height="32">
+                    </a>
+                    <a href="https//www.instagram.com" class="me-4 link-secondary">
+                        <img src="/img/fa-instagram.png" width="32" height="32">
+                    </a>
+                    <a href="https//www.linkedin.com" class="me-4 link-secondary">
+                        <img src="/img/fa-linkedin.png" width="32" height="32">
+                    </a>
+                    <a href="https//www.github.com" class="me-4 link-secondary">
+                        <img src="/img/fa-github.png" width="32" height="32">
+                    </a>
+                </div>
+
+            </section>
+
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                <i class="fas fa-gem me-3 text-secondary"></i>Taller FundAdecco2023
+                            </h6>
+                            <p>
+                                En nuestros talleres ofrecemos maxima profesionalidad y soluciones para sus vehiculos
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Products
+                            </h6>
+                            <p>
+                                <a href="#!" class="text-reset">Electronica</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-reset">Chapa y Pintura</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-reset">Roturas</a>
+                            </p>
+
+                        </div>
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">Norauto</h6>
+                            <p><i class="fas fa-home me-3 text-secondary"></i> address3</p>
+                            <p>
+                                <i class="fas fa-envelope me-3 text-secondary"></i>
+                                info@example.com
+                            </p>
+                            <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 612345678</p>
+
+                        </div>
+
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">El supercoche</h6>
+                            <p><i class="fas fa-home me-3 text-secondary"></i>address4</p>
+                            <p>
+                                <i class="fas fa-envelope me-3 text-secondary"></i>
+                                info@example.com
+                            </p>
+                            <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 687654321</p>
+
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+                © 2023 Copyright:
+                <a class="text-reset fw-bold" href="https://funadecco2023.com/">FundAdecco2023.com</a>
+            </div>
+
+        </footer>
+
+
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </div>
 </div>
-
-<footer th:fragment="footer1" class="text-center text-lg-start bg-white text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Conectate a través de nuestras redes sociales</span>
-        </div>
-
-        <div>
-            <a href="https//www.facebook.com" class="me-4 link-secondary">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https//www.twitter.com" class="me-4 link-secondary">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https//www.google.com" class="me-4 link-secondary">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="https//www.instagram.com" class="me-4 link-secondary">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https//www.linkedin.com" class="me-4 link-secondary">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https//www.github.com" class="me-4 link-secondary">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-
-    </section>
-
-    <section class="">
-        <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3 text-secondary"></i>Taller FundAdecco2023
-                    </h6>
-                    <p>
-                        En nuestros talleres ofrecemos maxima profesionalidad y soluciones para sus vehiculos
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Products
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">Electronica</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Chapa y Pintura</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Roturas</a>
-                    </p>
-
-                </div>
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">Norauto</h6>
-                    <p><i class="fas fa-home me-3 text-secondary"></i> address3</p>
-                    <p>
-                        <i class="fas fa-envelope me-3 text-secondary"></i>
-                        info@example.com
-                    </p>
-                    <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 612345678</p>
-
-                </div>
-
-
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">El supercoche</h6>
-                    <p><i class="fas fa-home me-3 text-secondary"></i>address4</p>
-                    <p>
-                        <i class="fas fa-envelope me-3 text-secondary"></i>
-                        info@example.com
-                    </p>
-                    <p><i class="fas fa-phone me-3 text-secondary"></i> + 34 687654321</p>
-
-                </div>
-                <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-        </div>
-    </section>
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-        © 2023 Copyright:
-        <a class="text-reset fw-bold" href="https://funadecco2023.com/">FundAdecco2023.com</a>
-    </div>
-</footer>
-
-
-
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
