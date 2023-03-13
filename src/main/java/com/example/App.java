@@ -133,8 +133,6 @@ public class App {
         UserEntity user1 = new UserEntity(null, "Jose Ignacio", "joigarja@gmail.com", passwordEncoder.encode("admin"));
         UserEntity user2 = new UserEntity(null, "Javier", "elboop86@gmail.com", passwordEncoder.encode("admin"));
         UserEntity user3 = new UserEntity(null, "Roberto", "robertron561@gmail.com ", passwordEncoder.encode("admin"));
-        UserEntity user4 = new UserEntity(null, "Oscar", "ormarrerom2402@gmail.com.com", passwordEncoder.encode("admin"));
-        UserEntity user5 = new UserEntity(null, "Cristina", "cristina.bustamanterunde@gmail.com", passwordEncoder.encode("admin"));
         UserEntity user4 = new UserEntity(null, "Oscar", "ormarrerom2402@gmail.com", passwordEncoder.encode("admin"));
         UserEntity user5 = new UserEntity(null, "Cristina", "cristina.bustamanterunde@gmail.com", passwordEncoder.encode("admin"));
 
