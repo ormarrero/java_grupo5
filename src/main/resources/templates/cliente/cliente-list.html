@@ -77,11 +77,11 @@
                 <tr th:each="cliente: ${clientes}">
                     <td th:text="${cliente.id}"></td>
                     <td th:text="${cliente.nombreCompleto}"></td>
-                    <td th:text="${cliente.address.calle}"></td>
+                    <td th:text="${cliente.address?.calle}"></td>
                     <td th:text="${cliente.email}"></td>
                     <td th:text="${cliente.nif}"></td>
                     <td th:text="${cliente.telefono}"></td>
-                    <td th:text="${cliente.vehiculo.marca}"></td>
+                    <td th:text="${cliente.vehiculo?.marca}"></td>
                     <td>
                         <!-- BOTONES ACTIONS:  VER - EDITAR - BORRAR -->
                         <a class="" th:href="@{/clientes/{id}(id=${cliente.id})}">

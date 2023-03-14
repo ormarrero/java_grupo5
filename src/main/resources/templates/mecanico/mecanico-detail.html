@@ -35,7 +35,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|Teléfono: ${mecanico.telefono}|" style="color:#000080;"></li>
 
-                    <li class="list-group-item" th:text="|Taller: ${mecanico.taller.nombre}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Taller: ${mecanico.taller?.nombre}|" style="color:#000080;"></li>
 
 
                 </ul>

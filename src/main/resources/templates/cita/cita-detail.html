@@ -30,16 +30,16 @@
             <div class="card" th:if="${error} == null">
                 <img src="/img/cita.png" class="card-img-top" alt="Cita Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${cita.cliente.nombreCompleto}" style="color:#000080;"></h5>
+                    <h5 class="card-title" th:text="|${cita.cliente?.nombreCompleto}|" style="color:#000080;"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|Fecha y hora: ${cita.fechaHora}|" style="color:#000080;"></li>
 
-                    <li class="list-group-item" th:text="|Tipo de avería: ${cita.averia.tipo}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Tipo de avería: ${cita.averia?.tipo}|" style="color:#000080;"></li>
 
-                    <li class="list-group-item" th:text="|Marca de vehículo: ${cita.vehiculo.matricula}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Marca de vehículo: ${cita.vehiculo?.matricula}|" style="color:#000080;"></li>
 
-                    <li class="list-group-item" th:text="|Taller: ${cita.taller.nombre}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Taller: ${cita.taller?.nombre}|" style="color:#000080;"></li>
 
 
 

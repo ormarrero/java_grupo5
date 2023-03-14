@@ -86,7 +86,7 @@
                         <tr th:each="taller: ${talleres}">
                             <td th:text="${taller.id}"></td>
                             <td th:text="${taller.nombre}"></td>
-                            <td th:text="|${taller.address.calle}, ${taller.address.ciudad}|"></td>
+                            <td th:text="|${taller.address?.calle}, ${taller.address?.ciudad}|"></td>
                             <td th:text="${taller.telefono}"></td>
                             <td>
                                 <!-- BOTONES ACTIONS:  VER - EDITAR - BORRAR -->

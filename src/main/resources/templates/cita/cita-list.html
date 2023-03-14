@@ -76,11 +76,11 @@
                 <tbody>
                  <tr th:each="cita: ${citas}">
                     <td th:text="${cita.id}"></td>
-                    <td th:text="${cita.cliente.nombreCompleto}"></td>
+                    <td th:text="${cita.cliente?.nombreCompleto}"></td>
                     <td th:text="${cita.fechaHora}"></td>
-                    <td th:text="${cita.averia.tipo}"></td>
-                    <td th:text="${cita.vehiculo.marca}"></td>
-                    <td th:text="${cita.taller.nombre}"></td>
+                    <td th:text="${cita.averia?.tipo}"></td>
+                    <td th:text="${cita.vehiculo?.marca}"></td>
+                    <td th:text="${cita.taller?.nombre}"></td>
                     <td>
                         <!-- BOTONES ACTIONS:  VER - EDITAR - BORRAR -->
                         <a class="" th:href="@{/citas/{id}(id=${cita.id})}">

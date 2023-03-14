@@ -76,9 +76,9 @@
                 <tr th:each="factura: ${facturas}">
                     <td th:text="${factura.id}"></td>
                     <td th:text="${factura.monto}"></td>
-                    <td th:text="${factura.cliente.nombreCompleto}"></td>
-                    <td th:text="${factura.taller.nombre}"></td>
-                    <td th:text="|${factura.averia.tipo}, ${factura.averia.grado}|"></td>
+                    <td th:text="${factura.cliente?.nombreCompleto}"></td>
+                    <td th:text="${factura.taller?.nombre}"></td>
+                    <td th:text="|${factura.averia?.tipo}, ${factura.averia?.grado}|"></td>
                     <td>
                         <!-- BOTONES ACTIONS:  VER - EDITAR - BORRAR -->
                         <a class="" th:href="@{/facturas/{id}(id=${factura.id})}">
