@@ -14,8 +14,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 class="h1-title" style="color:#000080;">Detalles de Avería</h1>
-        <div class="col" style="color:#000080;"></div>
+        <h1 class="h1-title">Detalles de Avería</h1>
+        <div class="col"></div>
 
         <div class="col">
 
@@ -30,14 +30,14 @@
             <div class="card" th:if="${error} == null">
                 <img src="/img/averia.png" class="card-img-top" alt="Averia Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${averia.tipo}" style="color:#000080;"></h5>
+                    <h5 class="card-title" th:text="${averia.tipo}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Grado: ${averia.grado}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Grado: ${averia.grado}|"></li>
 
-                    <li class="list-group-item" th:text="|Fecha y hora: ${averia.fechaHora}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Fecha: ${averia.fechaHora}|"></li>
 
-                    <li class="list-group-item" th:text="|Descripción: ${averia.descripcion}|" style="color:#000080;"></li>
+                    <li class="list-group-item" th:text="|Descripción: ${averia.descripcion}|"></li>
 
                 </ul>
                 <!--  BOTONES DE VER: VOLVER - EDITAR - BORRAR  -->

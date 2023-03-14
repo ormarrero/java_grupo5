@@ -15,7 +15,7 @@
     <div class="row">
 
         <h1 th:if="${cliente.id}" class="h1-title" style="color:#000080;">Modificar Cliente <span th:text="${cliente.id}"></span></h1>
-        <h1 th:if="${cliente.id} == null" class="h1-title" style="color:#000080;">Crear Nuevo Cliente</h1>
+        <h1 th:if="${cliente.id} == null" class="h1-title">Crear nuevo Cliente</h1>
 
         <div class="col"></div>
 
@@ -33,7 +33,7 @@
                 <input type="hidden" id="id" name="id" th:field="*{id}" />
 
                 <div class="mb-3">
-                    <label for="nombreCompleto" class="form-label" style="color:#000080;">Introduzca el Nombre Completo</label>
+                    <label for="nombreCompleto" class="form-label" style="color:#000080;">Introduzca el NombreCompleto</label>
                     <input type="text" class="form-control" id="nombreCompleto" th:field="*{nombreCompleto}" >
                 </div>
 
@@ -56,12 +56,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="nif" class="form-label" style="color:#000080;">Introduzca el Nif</label>
+                    <label for="nif" class="form-label" style="color:#000080;">Introduzca elNif</label>
                     <input type="text" class="form-control" id="nif" th:field="*{nif}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="telefono" class="form-label" style="color:#000080;">Introduzca el Teléfono</label>
+                    <label for="telefono" class="form-label" style="color:#000080;">Introduzca el Telefono</label>
                     <input type="number" class="form-control" id="telefono" th:field="*{telefono}">
                 </div>
 
@@ -102,22 +102,22 @@
 
         <div>
             <a href="https//www.facebook.com" class="me-4 link-secondary">
-                <i class="fab fa-facebook-f"></i>
+                <img src="/img/fa-facebook-f.png"  width="32" height="32">
             </a>
             <a href="https//www.twitter.com" class="me-4 link-secondary">
-                <i class="fab fa-twitter"></i>
+                <img src="/img/fa-twitter.png"  width="40" height="32">
             </a>
             <a href="https//www.google.com" class="me-4 link-secondary">
-                <i class="fab fa-google"></i>
+                <img src="/img/fa-google.png"  width="32" height="32">
             </a>
             <a href="https//www.instagram.com" class="me-4 link-secondary">
-                <i class="fab fa-instagram"></i>
+                <img src="/img/fa-instagram.png"  width="32" height="32">
             </a>
             <a href="https//www.linkedin.com" class="me-4 link-secondary">
-                <i class="fab fa-linkedin"></i>
+                <img src="/img/fa-linkedin.png"  width="32" height="32">
             </a>
             <a href="https//www.github.com" class="me-4 link-secondary">
-                <i class="fab fa-github"></i>
+                <img src="/img/fa-github.png"  width="32" height="32">
             </a>
         </div>
 
