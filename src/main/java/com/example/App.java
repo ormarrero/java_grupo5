@@ -25,13 +25,13 @@ public class App {
         VehiculoRepository vehiculoRepo = context.getBean(VehiculoRepository.class);
 
         Vehiculo vehiculo1 = new Vehiculo(null,  "Plaid AWD", "Tesla", TipoVehiculo.COCHE, "asd123", Color.AMARILLO, Combustible.ELECTRICO, 2019);
-        Vehiculo vehiculo2 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.BLANCO, Combustible.ELECTRICO, 2019);
+        Vehiculo vehiculo2 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2019);
         Vehiculo vehiculo3 = new Vehiculo(null,  "Plaid AWD", "Tesla",TipoVehiculo.COCHE, "qwe456", Color.AZUL, Combustible.GASOLINA, 2020);
-        Vehiculo vehiculo4 = new Vehiculo(null,  "Model3", "Tesla",TipoVehiculo.COCHE, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2022);
-        Vehiculo vehiculo5 = new Vehiculo(null,  "Model3", "Tesla",TipoVehiculo.COCHE, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2021);
-        Vehiculo vehiculo6 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.AZUL, Combustible.ELECTRICO, 2020);
+        Vehiculo vehiculo4 = new Vehiculo(null,  "Model3", "Tesla",TipoVehiculo.CAMION, "a-d44t0", Color.BLANCO, Combustible.GASOIL, 2022);
+        Vehiculo vehiculo5 = new Vehiculo(null,  "Model3", "Tesla",TipoVehiculo.MOTO, "W21ER2", Color.ROJO, Combustible.GASOLINA, 2021);
+        Vehiculo vehiculo6 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2020);
         Vehiculo vehiculo7 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2021);
-        Vehiculo vehiculo8 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.ROJO, Combustible.ELECTRICO, 2022);
+        Vehiculo vehiculo8 = new Vehiculo(null,  "BZ4X", "Toyota",TipoVehiculo.COCHE, "Plñ695", Color.NEGRO, Combustible.ELECTRICO, 2022);
         vehiculoRepo.saveAll(List.of(vehiculo1,vehiculo2, vehiculo3, vehiculo4, vehiculo5, vehiculo6, vehiculo7, vehiculo8));
 
 
@@ -133,7 +133,7 @@ public class App {
         UserEntity user1 = new UserEntity(null, "Jose Ignacio", "joigarja@gmail.com", passwordEncoder.encode("admin"));
         UserEntity user2 = new UserEntity(null, "Javier", "elboop86@gmail.com", passwordEncoder.encode("admin"));
         UserEntity user3 = new UserEntity(null, "Roberto", "robertron561@gmail.com ", passwordEncoder.encode("admin"));
-        UserEntity user4 = new UserEntity(null, "Oscar", "ormarrerom2402@gmail.com", passwordEncoder.encode("admin"));
+        UserEntity user4 = new UserEntity(null, "Oscar", "ormarrerom2402@gmail.com.com", passwordEncoder.encode("admin"));
         UserEntity user5 = new UserEntity(null, "Cristina", "cristina.bustamanterunde@gmail.com", passwordEncoder.encode("admin"));
 
         userRepo.saveAll(List.of(user1, user2, user3, user4, user5));
