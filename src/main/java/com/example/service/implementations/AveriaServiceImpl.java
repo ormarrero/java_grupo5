@@ -1,10 +1,14 @@
 package com.example.service.implementations;
 
 import com.example.entities.Averia;
+import com.example.entities.Cita;
+import com.example.entities.Factura;
 import com.example.entities.enums.Grado;
 import com.example.entities.enums.TipoAveria;
 import com.example.repositories.AveriaRepository;
 import com.example.service.AveriaService;
+import com.example.service.CitaService;
+import com.example.service.FacturaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,8 @@ import java.util.Optional;
 public class AveriaServiceImpl implements AveriaService {
 
     private final AveriaRepository averiaRepository;
+    private final CitaService citaService;
+    private final FacturaService facturaService;
 
     @Override
     public List<Averia> findAll() {
@@ -55,6 +61,17 @@ public class AveriaServiceImpl implements AveriaService {
 
     @Override
     public void deleteById(Long id) {
+        citaService.findAllByAveriaId(id).forEach(cita -> {
+            cita.setAveria(null);
+            citaService.save(cita);
+        });
+
+        facturaService.findAllByAveriaId(id).forEach(factura -> {
+            factura.setAveria(null);
+            facturaService.save(factura);
+        });
+
+
         averiaRepository.deleteById(id);
     }
 }

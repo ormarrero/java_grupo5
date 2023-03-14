@@ -1,7 +1,11 @@
 package com.example.service.implementations;
 
 import com.example.entities.Vehiculo;
+import com.example.entities.Cita;
+import com.example.entities.Cliente;
 import com.example.repositories.VehiculoRepository;
+import com.example.service.CitaService;
+import com.example.service.ClienteService;
 import com.example.service.VehiculoService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +19,8 @@ import java.util.Optional;
 public class VehiculoServiceImpl implements VehiculoService {
 
     private final VehiculoRepository vehiculoRepository;
+    private final CitaService citaService;
+    private final ClienteService clienteService;
 
     @Override
     public List<Vehiculo> findAll() {
@@ -57,5 +63,18 @@ public class VehiculoServiceImpl implements VehiculoService {
     }
 
     @Override
-    public void deleteById(Long id) {vehiculoRepository.deleteById(id); }
+    public void deleteById(Long id){
+
+        clienteService.findAllByVehiculoId(id).forEach(cliente -> {
+            cliente.setVehiculo(null);
+            clienteService.save(cliente);
+        });
+
+        citaService.findAllByVehiculoId(id).forEach(cita -> {
+            cita.setVehiculo(null);
+            citaService.save(cita);
+        });
+
+        vehiculoRepository.deleteById(id);
+    }
 }

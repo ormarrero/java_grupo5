@@ -18,6 +18,7 @@ public class Mecanico {
     private String fullname;
     private Integer telefono;
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "taller_id")
     private Taller taller;
 }

@@ -44,6 +44,21 @@ public class FacturaServiceImpl implements FacturaService {
 		return facturaRepository.findAllByAveria(averia);
 	}
 
+	@Override
+	public List<Factura> findAllByClienteId(Long id) {
+		return facturaRepository.findAllByClienteId(id);
+	}
+
+	@Override
+	public List<Factura> findAllByTallerId(Long id) {
+		return facturaRepository.findAllByTallerId(id);
+	}
+
+	@Override
+	public List<Factura> findAllByAveriaId(Long id) {
+		return facturaRepository.findAllByAveriaId(id);
+	}
+
 
 	@Override
 		public Factura save(Factura factura){return facturaRepository.save(factura);}

@@ -23,9 +23,13 @@ public interface CitaService {
     void deleteById(Long id);
 
     List<Cita> findAllByAveria(Averia averia);
-
-    //List<Cita> findAllByTipoAveria(TipoAveria tipoAveria);
-
-
     Object findAllByTaller(Taller taller);
+
+    List<Cita> findAllByClienteId(Long id);
+
+    List<Cita> findAllByAveriaId(Long id);
+
+    List<Cita> findAllByVehiculoId(Long id);
+
+    List<Cita> findAllByTallerId(Long id);
 }

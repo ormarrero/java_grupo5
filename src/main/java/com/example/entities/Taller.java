@@ -19,6 +19,7 @@ public class Taller {
     private Long id;
     private String nombre;
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "address_id")
     private Address address;
     private Integer telefono;

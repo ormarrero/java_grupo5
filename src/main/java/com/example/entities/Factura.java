@@ -17,12 +17,15 @@ public class Factura { //Nombre de la clase
     private Long id;
     private Double monto;
     @OneToOne //Asociar con otra clase uno a uno
+    @ToString.Exclude
     @JoinColumn(name = "cliente_id") //Asociar con identificador de la tabla destino
     private Cliente cliente;
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "taller_id")
     private Taller taller;
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "averia_id")
     private Averia averia;
 

@@ -15,6 +15,5 @@ public interface TallerService {
     List<Taller> findAllByNombreAndTelefono(String nombre, Integer telefono);
     Taller save(Taller taller);
     void deleteById(Long id);
-
-    // Lógica de negocio
+    List<Taller> findAllByAddressId(Long id);
 }

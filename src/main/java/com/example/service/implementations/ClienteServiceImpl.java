@@ -8,8 +8,12 @@ import com.example.entities.Address;
 import com.example.entities.Cliente;
 
 import com.example.entities.Vehiculo;
+import com.example.entities.Factura;
+import com.example.entities.Cita;
 import com.example.repositories.ClienteRepository;
+import com.example.service.CitaService;
 import com.example.service.ClienteService;
+import com.example.service.FacturaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +23,9 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 public class ClienteServiceImpl implements ClienteService {
-    
-    
     private final ClienteRepository clienteRepository;
+    private final CitaService citaService;
+    private final FacturaService facturaService;
 
     @Override
     public List<Cliente> findAll() {
@@ -74,20 +78,23 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public void deleteById(Long id) {
 
-        // desasociar facturas y todo lo q apunte al cliente
-        // find all by cliente id
-        // a cada factura le pongo null sus clientes
-        // guardar facturas
+        citaService.findAllByClienteId(id).forEach(cita -> {
+            cita.setCliente(null);
+            citaService.save(cita);
+        });
 
-        /*
-        List<Employee> employees = employeeService.findAllByCompanyId(id);
-        for (Employee employee : employees) {
-        employee.setCompany(null);
-        }
-        employeeService.saveAll(employees);
-        */
+        facturaService.findAllByClienteId(id).forEach(factura -> {
+            factura.setCliente(null);
+            facturaService.save(factura);
+        });
 
         clienteRepository.deleteById(id);
     }
-    
+
+    @Override
+    public List<Cliente> findAllByAddressId(Long id) { return clienteRepository.findAllByAddressId(id); }
+    @Override
+    public List<Cliente> findAllByVehiculoId(Long id) {
+        return clienteRepository.findAllByVehiculoId(id);
+    }
 }

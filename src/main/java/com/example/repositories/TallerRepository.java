@@ -13,5 +13,7 @@ public interface TallerRepository extends JpaRepository<Taller, Long> {
     List<Taller> findAllByAddress(Address address);
     List<Taller> findAllByTelefono(Integer telefono);
     List<Taller> findAllByNombreAndTelefono(String nombre, Integer telefono);
+
+    List<Taller> findAllByAddressId(Long id);
     
 }

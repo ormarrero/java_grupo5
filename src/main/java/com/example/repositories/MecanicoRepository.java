@@ -12,4 +12,5 @@ public interface MecanicoRepository extends JpaRepository<Mecanico, Long> {
     List<Mecanico> findAllByTelefono(Integer telefono);
     List<Mecanico> findAllByFullnameAndTelefono(String fullname, Integer telefono);
     List<Mecanico> findAllByTaller(Taller taller);
+    List<Mecanico> findAllByTallerId(Long id);
 }

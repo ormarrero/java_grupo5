@@ -61,4 +61,9 @@ public class MecanicoServiceImpl implements MecanicoService {
         mecanicoRepository.deleteById(id);
     }
 
+    @Override
+    public List<Mecanico> findAllByTallerId(Long id) {
+       return mecanicoRepository.findAllByTallerId(id);
+    }
+
 }

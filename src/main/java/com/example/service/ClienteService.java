@@ -2,6 +2,7 @@ package com.example.service;
 
 
 import com.example.entities.Address;
+import com.example.entities.Cita;
 import com.example.entities.Cliente;
 import com.example.entities.Vehiculo;
 
@@ -26,7 +27,10 @@ public interface ClienteService {
     List<Cliente> findAllByEmailAndNif(String email, String nif);
 
     List<Cliente> findAllByVehiculo(Vehiculo vehiculo);
-    
     Cliente save(Cliente cliente);
     void deleteById(Long id);
+    List<Cliente> findAllByAddressId(Long id);
+
+    List<Cliente> findAllByVehiculoId(Long id);
+
 }

@@ -18,12 +18,14 @@ public class Cliente {
 
     private String nombreCompleto;
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "address_id")
     private Address address;
     private String email;
     private String nif;
     private Integer telefono;
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "vehiculo_id")
     private Vehiculo vehiculo;
 

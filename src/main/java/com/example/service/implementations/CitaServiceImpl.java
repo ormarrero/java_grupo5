@@ -64,4 +64,19 @@ public class CitaServiceImpl implements CitaService {
     public Object findAllByTaller(Taller taller) {
         return citaRepository.findAllByTaller(taller);
     }
+
+    @Override
+    public List<Cita> findAllByClienteId(Long id) {
+        return citaRepository.findAllByClienteId(id);
+    }
+    @Override
+    public List<Cita> findAllByAveriaId(Long id) {
+        return citaRepository.findAllByAveriaId(id);
+    }
+    @Override
+    public List<Cita> findAllByVehiculoId(Long id) {
+        return citaRepository.findAllByVehiculoId(id);
+    }
+    @Override
+    public List<Cita> findAllByTallerId(Long id) { return citaRepository.findAllByTallerId(id); }
 }

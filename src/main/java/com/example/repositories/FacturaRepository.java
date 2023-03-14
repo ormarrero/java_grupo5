@@ -15,4 +15,8 @@ public interface FacturaRepository extends JpaRepository<Factura, Long> {
 	List<Factura> findAllByTaller(Taller taller);
 	List<Factura> findAllByAveria(Averia averia);
 
+	List<Factura> findAllByClienteId(Long id);
+	List<Factura> findAllByTallerId(Long id);
+	List<Factura> findAllByAveriaId(Long id);
+
 }

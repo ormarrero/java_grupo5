@@ -15,6 +15,7 @@ public interface MecanicoService {
     List<Mecanico> findAllByFullnameAndTelefono(String fullname, Integer telefono);
     Mecanico save(Mecanico mecanico);
     void deleteById(Long id);
+    List<Mecanico> findAllByTallerId(Long id);
 
     // Lógica de negocio
 }

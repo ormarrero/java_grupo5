@@ -1,8 +1,12 @@
 package com.example.service.implementations;
 
 import com.example.entities.Address;
+import com.example.entities.Cliente;
+import com.example.entities.Taller;
 import com.example.repositories.AddressRepository;
 import com.example.service.AddressService;
+import com.example.service.ClienteService;
+import com.example.service.TallerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +18,9 @@ import java.util.Optional;
 public class AddressServiceImpl implements AddressService {
 
     private final AddressRepository addressRepository;
+    private final ClienteService clienteService;
+    private final TallerService tallerService;
+
 
     @Override
     public List<Address> findAll() {
@@ -62,6 +69,16 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public void deleteById(Long id) {
+        clienteService.findAllByAddressId(id).forEach(cliente -> {
+            cliente.setAddress(null);
+            clienteService.save(cliente);
+        });
+
+        tallerService.findAllByAddressId(id).forEach(taller -> {
+            taller.setAddress(null);
+            tallerService.save(taller);
+        });
+
         addressRepository.deleteById(id);
     }
 }
