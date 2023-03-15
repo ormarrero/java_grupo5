@@ -83,12 +83,6 @@ public class App {
         Mecanico mecanico4 = new Mecanico(4L,"Antonio Sánchez de la Parra",655678207,taller2);
         mecanicoRepo.saveAll(List.of(mecanico1,mecanico2,mecanico3,mecanico4));
 
-
-
-
-       
-
-
         // AVERIA
 
 
